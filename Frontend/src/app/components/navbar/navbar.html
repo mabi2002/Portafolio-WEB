@@ -1,10 +1,74 @@
 <nav class="navbar">
-  <div class="container">
-    <div class="nav-content">
-      <a routerLink="/" class="logo">Mi Portfolio</a>
-      <div class="nav-links">
-        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
-        <a routerLink="/about" routerLinkActive="active">Acerca de</a>
+  <div class="navbar-container">
+    <div class="navbar-content">
+      <a routerLink="/" class="navbar-logo" (click)="closeMobileMenu()">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">{{ 'nav.title' | translate }}</span>
+      </a>
+
+      <button class="hamburger" [class.open]="mobileMenuOpen" (click)="toggleMobileMenu()" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="navbar-menu" [class.open]="mobileMenuOpen">
+        <div class="nav-links">
+          <a
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            (click)="closeMobileMenu()">
+            {{ 'nav.home' | translate }}
+          </a>
+          <a
+            routerLink="/about"
+            routerLinkActive="active"
+            (click)="closeMobileMenu()">
+            {{ 'nav.about' | translate }}
+          </a>
+        </div>
+
+        <div class="navbar-controls">
+          <div class="control-group">
+            <label class="control-label">{{ 'navbar.language' | translate }}</label>
+            <div class="language-selector">
+              <button
+                *ngFor="let lang of availableLanguages"
+                class="lang-btn"
+                [class.active]="(currentLanguage$ | async) === lang"
+                (click)="setLanguage(lang)">
+                {{ lang.toUpperCase() }}
+              </button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">{{ 'navbar.themeName' | translate }}</label>
+            <button
+              class="theme-toggle"
+              [class.dark]="(darkMode$ | async)"
+              (click)="toggleTheme()"
+              [title]="(darkMode$ | async) ? ('navbar.themeLight' | translate) : ('navbar.themeDark' | translate)">
+              <span class="theme-icon">
+                <svg *ngIf="!(darkMode$ | async)" class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <circle cx="12" cy="12" r="5"></circle>
+                  <line x1="12" y1="1" x2="12" y2="3"></line>
+                  <line x1="12" y1="21" x2="12" y2="23"></line>
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                  <line x1="1" y1="12" x2="3" y2="12"></line>
+                  <line x1="21" y1="12" x2="23" y2="12"></line>
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg *ngIf="(darkMode$ | async)" class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

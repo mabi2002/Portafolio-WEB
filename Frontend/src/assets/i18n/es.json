@@ -1,8 +1,18 @@
 {
+  "title": "Portafolio Profesional",
   "nav": {
+    "title": "Mi Portfolio",
     "home": "Inicio",
     "about": "Acerca de",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "projects": "Proyectos",
+    "skills": "Habilidades"
+  },
+  "navbar": {
+    "themeName": "Tema",
+    "themeDark": "Modo Oscuro",
+    "themeLight": "Modo Claro",
+    "language": "Idioma"
   },
   "hero": {
     "title": "Desarrollador Full Stack",
@@ -48,7 +58,8 @@
     "cv": "Descargar CV",
     "skills": "Habilidades",
     "experience": "Experiencia",
-    "education": "Educación"
+    "education": "Educación",
+    "loading": "Cargando perfil..."
   },
   "footer": {
     "copyright": "© 2026 Mi Portafolio. Todos los derechos reservados.",

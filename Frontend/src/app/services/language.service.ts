@@ -23,9 +23,11 @@ export class LanguageService {
     }
 
     // Detectar idioma del navegador
-    const browserLanguage = navigator.language.split('-')[0];
-    if (this.availableLanguages.includes(browserLanguage)) {
-      return browserLanguage;
+    if (typeof navigator !== 'undefined' && navigator.language) {
+      const browserLanguage = navigator.language.split('-')[0];
+      if (this.availableLanguages.includes(browserLanguage)) {
+        return browserLanguage;
+      }
     }
 
     // Default: español
@@ -54,3 +56,4 @@ export class LanguageService {
     return this.availableLanguages;
   }
 }
+

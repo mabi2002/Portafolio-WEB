@@ -1,8 +1,18 @@
 {
+  "title": "Professional Portfolio",
   "nav": {
+    "title": "My Portfolio",
     "home": "Home",
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+    "projects": "Projects",
+    "skills": "Skills"
+  },
+  "navbar": {
+    "themeName": "Theme",
+    "themeDark": "Dark Mode",
+    "themeLight": "Light Mode",
+    "language": "Language"
   },
   "hero": {
     "title": "Full Stack Developer",
@@ -48,7 +58,8 @@
     "cv": "Download CV",
     "skills": "Skills",
     "experience": "Experience",
-    "education": "Education"
+    "education": "Education",
+    "loading": "Loading profile..."
   },
   "footer": {
     "copyright": "© 2026 My Portfolio. All rights reserved.",
