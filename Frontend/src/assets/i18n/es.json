@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Desarrollador Full Stack",
+    "subtitle": "Creando soluciones innovadoras con tecnología moderna",
+    "cta1": "Ver Proyectos",
+    "cta2": "Contactar"
+  },
+  "stack": {
+    "title": "Stack Tecnológico",
+    "backend": "Backend",
+    "frontend": "Frontend",
+    "database": "Base de Datos",
+    "tools": "Herramientas"
+  },
+  "experience": {
+    "title": "Experiencia Profesional",
+    "description": "Trayectoria profesional en desarrollo de software"
+  },
+  "education": {
+    "title": "Educación",
+    "description": "Formación académica y cursos especializados"
+  },
+  "projects": {
+    "title": "Proyectos Destacados",
+    "empty": "No hay proyectos disponibles",
+    "github": "GitHub",
+    "demo": "Demo",
+    "viewMore": "Ver más"
+  },
+  "contact": {
+    "title": "Contacto",
+    "text": "¿Tienes un proyecto en mente? ¡Contactame!",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "about": {
+    "title": "Acerca de Mí",
+    "bio": "Biografía",
+    "location": "Ubicación",
+    "email": "Email",
+    "phone": "Teléfono",
+    "cv": "Descargar CV",
+    "skills": "Habilidades",
+    "experience": "Experiencia",
+    "education": "Educación"
+  },
+  "footer": {
+    "copyright": "© 2026 Mi Portafolio. Todos los derechos reservados.",
+    "theme": "Tema",
+    "language": "Idioma"
+  },
+  "general": {
+    "loading": "Cargando...",
+    "error": "Error al cargar",
+    "noData": "Sin datos"
+  }
+}

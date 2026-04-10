@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="#{title}">Portafolio Profesional</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div th:replace="fragments/navbar"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title" th:text="#{hero.title}">Desarrollador Full Stack</h2>
+                <p class="hero-subtitle" th:text="#{hero.subtitle}">Creando soluciones web innovadoras con tecnología moderna</p>
+                <div class="hero-buttons">
+                    <a href="#proyectos" class="btn btn-primary" th:text="#{hero.btn.projects}">Ver Proyectos</a>
+                    <a href="#contacto" class="btn btn-secondary" th:text="#{hero.btn.contact}">Contactame</a>
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-badge">Spring Boot</span>
+                    <span class="tech-badge">PostgreSQL</span>
+                    <span class="tech-badge">Thymeleaf</span>
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">HTML/CSS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="proyectos" class="projects-section">
+        <div class="container">
+            <h3 class="section-title" th:text="#{projects.title}">Proyectos Destacados</h3>
+
+            <div th:if="${proyectos.isEmpty()}" class="empty-message">
+                <p th:text="#{projects.empty}">No hay proyectos disponibles</p>
+            </div>
+
+            <div class="projects-grid" th:unless="${proyectos.isEmpty()}">
+                <article class="project-card" th:each="proyecto : ${proyectos}">
+                    <a th:href="@{/proyecto/{id}(id=${proyecto.id})}" class="project-card-link">
+                        <div class="project-image" th:if="${proyecto.imagenUrl}">
+                            <img th:src="${proyecto.imagenUrl}" th:alt="${proyecto.titulo}">
+                        </div>
+                        <div class="project-content">
+                            <h4 class="project-title" th:text="${proyecto.titulo}">Título Proyecto</h4>
+                            <p class="project-description" th:text="${proyecto.descripcion}">Descripción del proyecto</p>
+
+                            <div class="technologies" th:if="${proyecto.tecnologias}">
+                                <span class="tech-tag" th:each="tech : ${#strings.arraySplit(proyecto.tecnologias, ',')}"
+                                      th:text="${#strings.trim(tech)}">Tech</span>
+                            </div>
+
+                            <div class="project-links">
+                                <a th:if="${proyecto.urlGithub}" th:href="${proyecto.urlGithub}"
+                                   class="project-link" target="_blank" onclick="event.stopPropagation();" th:text="#{projects.github}">GitHub</a>
+                                <a th:if="${proyecto.urlDemo}" th:href="${proyecto.urlDemo}"
+                                   class="project-link" target="_blank" onclick="event.stopPropagation();" th:text="#{projects.demo}">Demo</a>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="habilidades" class="skills-section">
+        <div class="container">
+            <h3 class="section-title" th:text="#{skills.title}">Habilidades Técnicas</h3>
+
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <h4 th:text="#{skills.backend}">Backend</h4>
+                    <div class="skill-items">
+                        <span class="skill-item">Java</span>
+                        <span class="skill-item">Spring Boot</span>
+                        <span class="skill-item">Spring Security</span>
+                        <span class="skill-item">Spring Data JPA</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h4 th:text="#{skills.database}">Base de Datos</h4>
+                    <div class="skill-items">
+                        <span class="skill-item">PostgreSQL</span>
+                        <span class="skill-item">Flyway</span>
+                        <span class="skill-item">JPA/Hibernate</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h4 th:text="#{skills.frontend}">Frontend</h4>
+                    <div class="skill-items">
+                        <span class="skill-item">HTML5</span>
+                        <span class="skill-item">CSS3</span>
+                        <span class="skill-item">JavaScript</span>
+                        <span class="skill-item">Thymeleaf</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h4 th:text="#{skills.tools}">Herramientas</h4>
+                    <div class="skill-items">
+                        <span class="skill-item">Git</span>
+                        <span class="skill-item">Maven</span>
+                        <span class="skill-item">VS Code</span>
+                        <span class="skill-item">Postman</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <h3 class="section-title" th:text="#{contact.title}">Contacto</h3>
+
+            <div class="contact-content">
+                <p class="contact-text" th:text="#{contact.text}">¿Tienes un proyecto en mente? ¡Contactame!</p>
+
+                <!-- Formulario de Contacto -->
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="nombre" th:text="#{contact.form.name}">Nombre:</label>
+                            <input type="text" id="nombre" name="nombre" class="form-input" required>
+                            <small class="form-error" id="nombreError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" th:text="#{contact.form.email}">Email:</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                            <small class="form-error" id="emailError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="asunto" th:text="#{contact.form.subject}">Asunto:</label>
+                            <input type="text" id="asunto" name="asunto" class="form-input" required>
+                            <small class="form-error" id="asuntoError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensaje" th:text="#{contact.form.message}">Mensaje:</label>
+                            <textarea id="mensaje" name="mensaje" class="form-textarea" rows="5" required></textarea>
+                            <small class="form-error" id="mensajeError"></small>
+                        </div>
+
+                        <div id="formMessage" class="form-message"></div>
+
+                        <button type="submit" class="btn btn-primary form-submit-btn" th:text="#{contact.form.send}">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Links de Contacto -->
+                <div class="contact-links">
+                    <a href="mailto:tu-email@ejemplo.com" class="contact-link">
+                        <span>📧</span>
+                        <span th:text="#{contact.email}">Email</span>
+                    </a>
+                    <a href="https://github.com" class="contact-link" target="_blank">
+                        <span>💻</span>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://linkedin.com" class="contact-link" target="_blank">
+                        <span>💼</span>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div th:replace="fragments/footer"></div>
+
+    <script th:src="@{/js/script.js}"></script>
+</body>
+</html>

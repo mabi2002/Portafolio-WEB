@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="#{about.title}">Acerca de Mí - Portafolio</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div th:replace="fragments/navbar"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-about">
+        <div class="container">
+            <div class="about-hero-content">
+                <div class="perfil-imagen" th:if="${perfil?.fotoUrl}">
+                    <img th:src="${perfil.fotoUrl}" th:alt="${perfil.nombre}" alt="Foto de perfil">
+                </div>
+                <div class="perfil-info">
+                    <h1 th:text="${perfil?.nombre}">Nombre Desarrollador</h1>
+                    <p class="titulo-about" th:text="${perfil?.titulo}">Desarrollador Full Stack</p>
+                    <p class="bio-about" th:text="${perfil?.bio}">Bio del desarrollador</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="about-content">
+        <div class="container">
+            <div class="about-grid">
+                <!-- Sección Izquierda: Info -->
+                <div class="about-left">
+                    <!-- About Details -->
+                    <div class="about-section">
+                        <h2 th:text="#{about.section.about}">Acerca de Mí</h2>
+                        <p th:text="${perfil?.bio}">Información detallada sobre ti.</p>
+                    </div>
+
+                    <!-- Datos de Contacto -->
+                    <div class="about-section">
+                        <h2 th:text="#{about.section.contact}">Información de Contacto</h2>
+                        <div class="contact-details">
+                            <div class="detail-item" th:if="${perfil?.email}">
+                                <span class="detail-label">Email:</span>
+                                <a th:href="'mailto:' + ${perfil.email}" th:text="${perfil.email}">email@ejemplo.com</a>
+                            </div>
+                            <div class="detail-item" th:if="${perfil?.telefono}">
+                                <span class="detail-label">Teléfono:</span>
+                                <span th:text="${perfil.telefono}">+34 612 345 678</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label" th:text="#{about.section.location}">Ubicación:</span>
+                                <span>España 🇪🇸</span>
+                            </div>
+                        </div>
+
+                        <!-- Links -->
+                        <div class="about-links" th:if="${perfil?.linkedinUrl or perfil?.githubUrl or perfil?.cvUrl}">
+                            <a th:if="${perfil?.linkedinUrl}" th:href="${perfil.linkedinUrl}" target="_blank" class="btn btn-secondary">
+                                <span>💼</span> LinkedIn
+                            </a>
+                            <a th:if="${perfil?.githubUrl}" th:href="${perfil.githubUrl}" target="_blank" class="btn btn-secondary">
+                                <span>💻</span> GitHub
+                            </a>
+                            <a th:if="${perfil?.cvUrl}" th:href="${perfil.cvUrl}" target="_blank" class="btn btn-primary">
+                                <span>📄</span> <span th:text="#{about.btn.cv}">Descargar CV</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sección Derecha: Habilidades -->
+                <div class="about-right">
+                    <!-- Habilidades Técnicas -->
+                    <div class="about-section">
+                        <h2 th:text="#{about.section.skills}">Habilidades Técnicas</h2>
+                        <div class="skills-categories">
+                            <div class="skill-category">
+                                <h4 th:text="#{about.skills.backend}">Backend</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Java</span>
+                                    <span class="skill-tag">Spring Boot</span>
+                                    <span class="skill-tag">Spring Security</span>
+                                    <span class="skill-tag">Spring Data JPA</span>
+                                    <span class="skill-tag">REST APIs</span>
+                                    <span class="skill-tag">Microservicios</span>
+                                </div>
+                            </div>
+
+                            <div class="skill-category">
+                                <h4 th:text="#{about.skills.frontend}">Frontend</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">HTML5</span>
+                                    <span class="skill-tag">CSS3</span>
+                                    <span class="skill-tag">JavaScript</span>
+                                    <span class="skill-tag">Thymeleaf</span>
+                                    <span class="skill-tag">Bootstrap</span>
+                                </div>
+                            </div>
+
+                            <div class="skill-category">
+                                <h4 th:text="#{about.skills.database}">Base de Datos</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">PostgreSQL</span>
+                                    <span class="skill-tag">MongoDB</span>
+                                    <span class="skill-tag">JPA/Hibernate</span>
+                                    <span class="skill-tag">Flyway</span>
+                                    <span class="skill-tag">SQL</span>
+                                </div>
+                            </div>
+
+                            <div class="skill-category">
+                                <h4 th:text="#{about.skills.tools}">Herramientas</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Git</span>
+                                    <span class="skill-tag">Maven</span>
+                                    <span class="skill-tag">Docker</span>
+                                    <span class="skill-tag">Jenkins</span>
+                                    <span class="skill-tag">Postman</span>
+                                    <span class="skill-tag">VS Code</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="about-timeline">
+        <div class="container">
+            <h2 th:text="#{about.section.experience}">Experiencia Profesional</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Senior Developer</h3>
+                        <p class="timeline-date">2021 - Presente</p>
+                        <p class="timeline-description">Desarrollo de aplicaciones empresariales con Spring Boot. Liderazgo técnico y mentoring de juniors.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Full Stack Developer</h3>
+                        <p class="timeline-date">2019 - 2021</p>
+                        <p class="timeline-description">Desarrollo de soluciones web completas con Java y JavaScript. Implementación de APIs REST.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Junior Developer</h3>
+                        <p class="timeline-date">2018 - 2019</p>
+                        <p class="timeline-description">Inicio en desarrollo web. Aprendizaje de fundamentos de programación y web technologies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div th:replace="fragments/footer"></div>
+
+    <script th:src="@{/js/script.js}"></script>
+</body>
+</html>

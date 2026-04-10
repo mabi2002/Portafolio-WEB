@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${proyecto?.titulo}">Detalle Proyecto</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div th:replace="fragments/navbar"></div>
+
+    <!-- Proyecto Detalle Hero -->
+    <section class="proyecto-hero">
+        <div class="container">
+            <a href="/" class="back-link">
+                <span>←</span> <span th:text="#{project.back}">Volver</span>
+            </a>
+            <h1 class="proyecto-titulo" th:text="${proyecto?.titulo}">Título del Proyecto</h1>
+            <p class="proyecto-fecha" th:text="${#temporals.format(proyecto?.fechaCreacion, 'dd/MM/yyyy')}">Fecha</p>
+        </div>
+    </section>
+
+    <!-- Proyecto Imagen -->
+    <section class="proyecto-imagen-section">
+        <div class="container">
+            <div class="proyecto-imagen-container" th:if="${proyecto?.imagenUrl}">
+                <img th:src="${proyecto.imagenUrl}" th:alt="${proyecto.titulo}" class="proyecto-imagen">
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyecto Contenido -->
+    <section class="proyecto-contenido">
+        <div class="container">
+            <div class="proyecto-grid">
+                <!-- Contenido Principal -->
+                <div class="proyecto-main">
+                    <div class="proyecto-section">
+                        <h2 th:text="#{project.description}">Descripción</h2>
+                        <p class="proyecto-descripcion" th:text="${proyecto?.descripcion}">Descripción del proyecto</p>
+                    </div>
+
+                    <!-- Tecnologías -->
+                    <div class="proyecto-section" th:if="${proyecto?.tecnologias}">
+                        <h2 th:text="#{project.technologies}">Tecnologías Utilizadas</h2>
+                        <div class="tecnologias-list">
+                            <span class="tech-badge-large"
+                                  th:each="tech : ${#strings.arraySplit(proyecto.tecnologias, ',')}"
+                                  th:text="${#strings.trim(tech)}">Tech</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="proyecto-sidebar">
+                    <!-- Links del Proyecto -->
+                    <div class="proyecto-links-box">
+                        <h3 th:text="#{project.links}">Enlaces del Proyecto</h3>
+                        <div class="links-container">
+                            <a th:if="${proyecto?.urlGithub}"
+                               th:href="${proyecto.urlGithub}"
+                               target="_blank"
+                               class="link-btn link-github">
+                                <span>💻</span>
+                                <span th:text="#{project.view.github}">Ver en GitHub</span>
+                            </a>
+                            <a th:if="${proyecto?.urlDemo}"
+                               th:href="${proyecto.urlDemo}"
+                               target="_blank"
+                               class="link-btn link-demo">
+                                <span>🚀</span>
+                                <span th:text="#{project.view.demo}">Ver Demo</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Información del Proyecto -->
+                    <div class="proyecto-info-box">
+                        <h3 th:text="#{project.info}">Información</h3>
+                        <div class="info-item">
+                            <span class="info-label" th:text="#{project.created}">Fecha Creación:</span>
+                            <span th:text="${#temporals.format(proyecto?.fechaCreacion, 'dd/MM/yyyy')}">Fecha</span>
+                        </div>
+                        <div class="info-item" th:if="${proyecto?.tecnologias}">
+                            <span class="info-label" th:text="#{project.tech.count}">Tecnologías:</span>
+                            <span th:text="${#strings.arraySplit(proyecto.tecnologias, ',').length}">5+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyectos Relacionados -->
+    <section class="proyectos-relacionados">
+        <div class="container">
+            <h2 th:text="#{project.related}">Más Proyectos</h2>
+            <div class="projects-grid">
+                <article class="project-card"
+                         th:each="p : ${proyectosRelacionados}"
+                         th:if="${p.id != proyecto.id}"
+                         th:classappend="${proyectosRelacionados.indexOf(p) > 2} ? 'hidden' : ''">
+                    <div class="project-image" th:if="${p.imagenUrl}">
+                        <img th:src="${p.imagenUrl}" th:alt="${p.titulo}">
+                    </div>
+                    <div class="project-content">
+                        <h4 class="project-title" th:text="${p.titulo}">Título Proyecto</h4>
+                        <p class="project-description" th:text="${p.descripcion}">Descripción del proyecto</p>
+
+                        <div class="technologies" th:if="${p.tecnologias}">
+                            <span class="tech-tag" th:each="tech : ${#strings.arraySplit(p.tecnologias, ',')}"
+                                  th:text="${#strings.trim(tech)}">Tech</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a th:href="@{/proyecto/{id}(id=${p.id})}" class="project-link">
+                                <span th:text="#{project.view}">Ver Detalle</span> →
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <div th:replace="fragments/footer"></div>
+
+    <script th:src="@{/js/script.js}"></script>
+</body>
+</html>

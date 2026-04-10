@@ -1,0 +1,40 @@
+# Workspace
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Frontend
+Frontend/node_modules/
+Frontend/dist/
+Frontend/.angular/
+Frontend/tmp/
+Frontend/out-tsc/
+Frontend/bazel-out/
+Frontend/coverage/
+Frontend/.sass-cache/
+Frontend/connect.lock
+Frontend/libpeerconnection.log
+Frontend/testem.log
+Frontend/typings/
+Frontend/__screenshots__/
+Frontend/npm-debug.log
+Frontend/yarn-error.log
+
+# Backend
+Backend/target/
+Backend/build/
+Backend/.mvn/wrapper/maven-wrapper.jar
+Backend/.apt_generated/
+Backend/.factorypath
+Backend/.project
+Backend/.classpath
+Backend/.settings/
+Backend/.springBeans
+Backend/.sts4-cache/
+Backend/nbproject/private/
+Backend/nbbuild/
+Backend/dist/
+Backend/nbdist/
+Backend/.nb-gradle/
+

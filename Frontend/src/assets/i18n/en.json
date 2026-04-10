@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Full Stack Developer",
+    "subtitle": "Creating innovative solutions with modern technology",
+    "cta1": "View Projects",
+    "cta2": "Get in Touch"
+  },
+  "stack": {
+    "title": "Tech Stack",
+    "backend": "Backend",
+    "frontend": "Frontend",
+    "database": "Database",
+    "tools": "Tools"
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "description": "Professional trajectory in software development"
+  },
+  "education": {
+    "title": "Education",
+    "description": "Academic training and specialized courses"
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "empty": "No projects available",
+    "github": "GitHub",
+    "demo": "Demo",
+    "viewMore": "View more"
+  },
+  "contact": {
+    "title": "Contact",
+    "text": "Have a project in mind? Let's get in touch!",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "about": {
+    "title": "About Me",
+    "bio": "Biography",
+    "location": "Location",
+    "email": "Email",
+    "phone": "Phone",
+    "cv": "Download CV",
+    "skills": "Skills",
+    "experience": "Experience",
+    "education": "Education"
+  },
+  "footer": {
+    "copyright": "© 2026 My Portfolio. All rights reserved.",
+    "theme": "Theme",
+    "language": "Language"
+  },
+  "general": {
+    "loading": "Loading...",
+    "error": "Error loading",
+    "noData": "No data"
+  }
+}

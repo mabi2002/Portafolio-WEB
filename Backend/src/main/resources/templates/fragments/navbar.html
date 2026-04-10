@@ -1,0 +1,18 @@
+<nav class="navbar">
+    <div class="container">
+        <div class="nav-content">
+            <a href="/" class="logo" th:text="#{nav.title}">Portfolio</a>
+            <div class="nav-right">
+                <a href="/" class="nav-link" th:text="#{nav.home}">Inicio</a>
+                <a href="/#proyectos" class="nav-link" th:text="#{nav.projects}">Proyectos</a>
+                <a href="/about" class="nav-link" th:text="#{nav.about}">Acerca de</a>
+                <a href="/#contacto" class="nav-link" th:text="#{nav.contact}">Contacto</a>
+                <button id="darkModeToggle" class="dark-mode-btn" aria-label="Toggle dark mode">🌙</button>
+                <select id="languageToggle" class="language-select">
+                    <option value="es">ES</option>
+                    <option value="en">EN</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</nav>

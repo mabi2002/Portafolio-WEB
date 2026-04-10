@@ -1,0 +1,28 @@
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4 th:text="#{footer.title}">Mi Portafolio</h4>
+                <p th:text="#{footer.description}">Desarrollador Full Stack especializado en tecnologías web modernas.</p>
+            </div>
+            <div class="footer-section">
+                <h4 th:text="#{footer.links}">Enlaces</h4>
+                <ul>
+                    <li><a href="/" th:text="#{footer.home}">Inicio</a></li>
+                    <li><a href="/about" th:text="#{footer.about}">Acerca de</a></li>
+                    <li><a href="/#proyectos" th:text="#{footer.projects}">Proyectos</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 th:text="#{footer.social}">Redes Sociales</h4>
+                <div class="social-links">
+                    <a href="https://github.com" target="_blank" aria-label="GitHub">GitHub</a>
+                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p th:text="#{footer.copyright}">© 2024 Portafolio. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>

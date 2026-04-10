@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+
+<main class="container">
+  <section class="proyecto-detalle">
+    <div *ngIf="cargando" class="loading">
+      <p>Cargando proyecto...</p>
+    </div>
+
+    <div *ngIf="!cargando && proyecto" class="proyecto-content">
+      <button class="back-btn" routerLink="/">← Volver</button>
+
+      <div class="proyecto-header">
+        <h1>{{ proyecto.titulo }}</h1>
+        <img *ngIf="proyecto.imagenUrl" [src]="proyecto.imagenUrl" [alt]="proyecto.titulo" class="proyecto-image">
+      </div>
+
+      <div class="proyecto-body">
+        <p class="descripcion">{{ proyecto.descripcion }}</p>
+
+        <div *ngIf="proyecto.tecnologias" class="technologies">
+          <h3>Tecnologías</h3>
+          <div class="tech-list">
+            <span class="tech-tag" *ngFor="let tech of proyecto.tecnologias.split(',')">
+              {{ tech.trim() }}
+            </span>
+          </div>
+        </div>
+
+        <div class="links">
+          <a *ngIf="proyecto.urlGithub" [href]="proyecto.urlGithub" target="_blank" class="btn btn-primary">
+            GitHub
+          </a>
+          <a *ngIf="proyecto.urlDemo" [href]="proyecto.urlDemo" target="_blank" class="btn btn-secondary">
+            Demo
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>
