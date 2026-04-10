@@ -8,14 +8,56 @@
       <p>Creando soluciones web innovadoras con tecnología moderna</p>
       <div class="hero-buttons">
         <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
-        <a href="/about" class="btn btn-secondary">Acerca de Mí</a>
+        <a href="#contacto" class="btn btn-secondary">Conectar</a>
+      </div>
+    </div>
+    <div class="hero-background"></div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="habilidades" class="skills-section">
+    <div class="section-header">
+      <h2>Habilidades Técnicas</h2>
+      <p>Tecnologías que domino y utilizo en mis proyectos</p>
+    </div>
+
+    <div class="skills-grid">
+      <!-- Backend -->
+      <div class="skill-card backend">
+        <div class="skill-icon">⚙️</div>
+        <h3>Backend</h3>
+        <p>Java, Spring Boot, Python, Node.js</p>
+      </div>
+
+      <!-- Frontend -->
+      <div class="skill-card frontend">
+        <div class="skill-icon">🎨</div>
+        <h3>Frontend</h3>
+        <p>Angular, React, TypeScript, HTML5</p>
+      </div>
+
+      <!-- Database -->
+      <div class="skill-card database">
+        <div class="skill-icon">💾</div>
+        <h3>Base de Datos</h3>
+        <p>MySQL, PostgreSQL, MongoDB</p>
+      </div>
+
+      <!-- Tools -->
+      <div class="skill-card tools">
+        <div class="skill-icon">🛠️</div>
+        <h3>Herramientas</h3>
+        <p>Git, Docker, Linux, AWS</p>
       </div>
     </div>
   </section>
 
   <!-- Projects Section -->
   <section id="proyectos" class="projects-section">
-    <h2>Proyectos Destacados</h2>
+    <div class="section-header">
+      <h2>Proyectos Destacados</h2>
+      <p>Trabajos recientes que muestran mi expertise</p>
+    </div>
 
     <div *ngIf="cargando" class="loading">
       <p>Cargando proyectos...</p>
@@ -54,6 +96,18 @@
           </div>
         </a>
       </article>
+    </div>
+  </section>
+
+  <!-- Contact CTA Section -->
+  <section id="contacto" class="contact-cta-section">
+    <div class="cta-content">
+      <h2>¿Tienes un Proyecto en Mente?</h2>
+      <p>Estoy disponible para colaborar en nuevos proyectos. Déjame saber cómo puedo ayudarte.</p>
+      <div class="cta-buttons">
+        <a href="mailto:tu-email@example.com" class="btn btn-primary">Enviar Email</a>
+        <a routerLink="/about" class="btn btn-secondary">Más Información</a>
+      </div>
     </div>
   </section>
 </main>

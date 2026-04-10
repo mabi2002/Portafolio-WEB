@@ -32,6 +32,11 @@
     z-index: 1;
   }
 
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
   h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
@@ -97,21 +102,109 @@
   }
 }
 
-.projects-section {
-  padding: 3rem 0;
-  animation: fadeInUp 0.8s ease-out 0.4s both;
+/* ==================== SECTION HEADER ==================== */
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.8s ease-out;
 
   h2 {
-    text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     color: var(--text-primary);
-    animation: fadeInDown 0.8s ease-out;
 
     @media (max-width: 768px) {
       font-size: 2rem;
     }
   }
+
+  p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+  }
+}
+
+/* ==================== SKILLS SECTION ==================== */
+
+.skills-section {
+  padding: 3rem 0;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.skill-card {
+  padding: 2rem;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  border: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+  animation: scaleUp 0.6s ease-out;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary-color);
+    box-shadow: var(--glow-primary);
+  }
+
+  .skill-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  h3 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  &.backend::before {
+    background: linear-gradient(90deg, #60a5fa, #a78bfa);
+  }
+
+  &.frontend::before {
+    background: linear-gradient(90deg, #a78bfa, #f472b6);
+  }
+
+  &.database::before {
+    background: linear-gradient(90deg, #f472b6, #fb923c);
+  }
+
+  &.tools::before {
+    background: linear-gradient(90deg, #fb923c, #60a5fa);
+  }
+}
+
+/* ==================== PROJECTS SECTION ==================== */
+
+.projects-section {
+  padding: 3rem 0;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
 .projects-grid {
@@ -236,6 +329,92 @@
     }
   }
 }
+
+/* ==================== CONTACT CTA SECTION ==================== */
+
+.contact-cta-section {
+  margin: 4rem 0 3rem 0;
+  padding: 3rem 2rem;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-2xl);
+  color: white;
+  text-align: center;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    z-index: 0;
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.95);
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .btn {
+      &.btn-primary {
+        background: white;
+        color: var(--primary-color);
+
+        &:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+      }
+
+      &.btn-secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+
+        &:hover {
+          background: white;
+          color: var(--primary-color);
+          transform: translateY(-3px);
+        }
+      }
+    }
+
+    @media (max-width: 640px) {
+      flex-direction: column;
+    }
+  }
+}
+
+/* ==================== LOADING & EMPTY STATES ==================== */
 
 .loading,
 .empty-message {
