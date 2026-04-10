@@ -6,10 +6,9 @@ import { TranslateService } from '@ngx-translate/core';
   providedIn: 'root'
 })
 export class LanguageService {
+  private availableLanguages = ['es', 'en'];
   private languageSubject = new BehaviorSubject<string>(this.getDefaultLanguage());
   language$ = this.languageSubject.asObservable();
-
-  private availableLanguages = ['es', 'en'];
 
   constructor(private translateService: TranslateService) {
     this.initializeLanguage();
@@ -56,4 +55,5 @@ export class LanguageService {
     return this.availableLanguages;
   }
 }
+
 
