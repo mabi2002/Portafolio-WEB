@@ -1,31 +1,110 @@
 <app-navbar></app-navbar>
 
-<main class="container">
-  <section class="about-section">
-    <h1>Acerca de Mí</h1>
+<main class="about-page">
+  <section class="about-shell">
+    <div class="container">
+      <div *ngIf="cargando" class="loading">
+        <p>Cargando perfil...</p>
+      </div>
 
-    <div *ngIf="cargando" class="loading">
-      <p>Cargando perfil...</p>
-    </div>
+      <div *ngIf="!cargando && perfil" class="about-grid">
+        <aside class="about-intro">
+          <span class="eyebrow">Sobre mi</span>
+          <h1>
+            Diseno con proposito,
+            <span>codigo con atencion al detalle</span>
+          </h1>
+          <p>
+            Me gusta construir productos digitales elegantes, accesibles y estables. Esta es una vista mas
+            completa de mi perfil profesional.
+          </p>
+        </aside>
 
-    <div *ngIf="!cargando && perfil" class="about-content">
-      <div class="about-hero">
-        <img *ngIf="perfil.fotoUrl" [src]="perfil.fotoUrl" [alt]="perfil.nombre" class="profile-pic">
-        <div class="about-info">
-          <h2>{{ perfil.nombre }}</h2>
-          <p class="title">{{ perfil.titulo }}</p>
-          <p class="bio">{{ perfil.bio }}</p>
+        <div class="about-content">
+          <article class="profile-card">
+            <img *ngIf="perfil.fotoUrl" [src]="perfil.fotoUrl" [alt]="perfil.nombre" class="profile-pic">
+
+            <div class="profile-info">
+              <h2>{{ perfil.nombre }}</h2>
+              <p class="title">{{ perfil.titulo }}</p>
+              <p class="bio">{{ perfil.bio }}</p>
+            </div>
+          </article>
+
+          <article *ngIf="perfil.experiencia" class="detail-card">
+            <span class="card-label">Experiencia</span>
+            <p>{{ perfil.experiencia }}</p>
+          </article>
+
+          <article *ngIf="perfil.educacion" class="detail-card">
+            <span class="card-label">Educacion</span>
+            <p>{{ perfil.educacion }}</p>
+          </article>
+
+          <article class="detail-card skills-card">
+            <span class="card-label">Especialidades</span>
+            <div class="skills-grid">
+              <div>
+                <h3>Frontend</h3>
+                <ul>
+                  <li>Angular</li>
+                  <li>React</li>
+                  <li>TypeScript</li>
+                </ul>
+              </div>
+              <div>
+                <h3>Backend</h3>
+                <ul>
+                  <li>Java</li>
+                  <li>Spring Boot</li>
+                  <li>APIs REST</li>
+                </ul>
+              </div>
+              <div>
+                <h3>Datos</h3>
+                <ul>
+                  <li>MySQL</li>
+                  <li>PostgreSQL</li>
+                  <li>MongoDB</li>
+                </ul>
+              </div>
+              <div>
+                <h3>Herramientas</h3>
+                <ul>
+                  <li>Git</li>
+                  <li>Docker</li>
+                  <li>Linux</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="detail-card" *ngIf="perfil.email || perfil.telefono || perfil.githubUrl || perfil.linkedinUrl || perfil.cvUrl">
+            <span class="card-label">Contacto y enlaces</span>
+            <div class="links-grid">
+              <a *ngIf="perfil.email" [href]="'mailto:' + perfil.email">
+                <span>Email</span>
+                <strong>{{ perfil.email }}</strong>
+              </a>
+              <a *ngIf="perfil.telefono" [href]="'tel:' + perfil.telefono">
+                <span>Telefono</span>
+                <strong>{{ perfil.telefono }}</strong>
+              </a>
+              <a *ngIf="perfil.githubUrl" [href]="perfil.githubUrl" target="_blank" rel="noopener noreferrer">
+                <span>GitHub</span>
+                <strong>{{ perfil.githubUrl }}</strong>
+              </a>
+              <a *ngIf="perfil.linkedinUrl" [href]="perfil.linkedinUrl" target="_blank" rel="noopener noreferrer">
+                <span>LinkedIn</span>
+                <strong>{{ perfil.linkedinUrl }}</strong>
+              </a>
+              <a *ngIf="perfil.cvUrl" [href]="perfil.cvUrl" target="_blank" rel="noopener noreferrer">
+                <span>CV</span>
+                <strong>Descargar curriculum</strong>
+              </a>
+            </div>
+          </article>
         </div>
-      </div>
-
-      <div *ngIf="perfil.experiencia" class="section">
-        <h3>Experiencia</h3>
-        <p>{{ perfil.experiencia }}</p>
-      </div>
-
-      <div *ngIf="perfil.educacion" class="section">
-        <h3>Educación</h3>
-        <p>{{ perfil.educacion }}</p>
       </div>
     </div>
   </section>

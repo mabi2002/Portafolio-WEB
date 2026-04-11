@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ProyectoService } from '../../services/proyecto.service';
 import { Proyecto } from '../../models/proyecto.model';
+import { PerfilService } from '../../services/perfil.service';
+import { Perfil } from '../../models/perfil.model';
 import { Navbar } from '../navbar/navbar';
 import { Footer } from '../footer/footer';
 
@@ -15,22 +17,24 @@ import { Footer } from '../footer/footer';
 })
 export class Home implements OnInit {
   proyectos: Proyecto[] = [];
+  perfil: Perfil | null = null;
   cargando = true;
+  cargandoPerfil = true;
 
-  constructor(private proyectoService: ProyectoService, private cdr: ChangeDetectorRef) {
-    console.log('Home component creado');
-  }
+  constructor(
+    private proyectoService: ProyectoService,
+    private perfilService: PerfilService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit() {
-    console.log('ngOnInit ejecutado');
     this.cargarProyectos();
+    this.cargarPerfil();
   }
 
-  cargarProyectos() {
-    console.log('Llamando a obtenerTodos()');
+  cargarProyectos(): void {
     this.proyectoService.obtenerTodos().subscribe({
       next: (data) => {
-        console.log('Proyectos recibidos:', data);
         this.proyectos = data;
         this.cargando = false;
         this.cdr.detectChanges();
@@ -38,6 +42,20 @@ export class Home implements OnInit {
       error: (err) => {
         console.error('Error al cargar proyectos:', err);
         this.cargando = false;
+        this.cdr.detectChanges();
+      }
+    });
+  }
+
+  cargarPerfil(): void {
+    this.perfilService.obtenerPerfil().subscribe({
+      next: (data) => {
+        this.perfil = data;
+        this.cargandoPerfil = false;
+        this.cdr.detectChanges();
+      },
+      error: () => {
+        this.cargandoPerfil = false;
         this.cdr.detectChanges();
       }
     });

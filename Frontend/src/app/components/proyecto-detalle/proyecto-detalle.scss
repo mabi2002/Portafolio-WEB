@@ -1,0 +1,127 @@
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 6.4rem var(--spacing-lg) 2.2rem;
+}
+
+.proyecto-content {
+  border: 1px solid var(--border-color);
+  border-radius: 1.2rem;
+  background: rgba(17, 26, 37, 0.75);
+  overflow: hidden;
+}
+
+.back-btn {
+  margin: 1.1rem;
+  border: 1px solid var(--border-color);
+  background: rgba(25, 37, 52, 0.68);
+  color: var(--text-primary);
+  border-radius: 0.65rem;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  transition: all var(--transition-base);
+
+  &:hover {
+    border-color: rgba(105, 195, 180, 0.45);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+  }
+}
+
+.proyecto-header {
+  border-top: 1px solid var(--border-color);
+
+  h1 {
+    margin: 0;
+    padding: 1.4rem 1.2rem 0.4rem;
+    font-size: clamp(1.9rem, 4vw, 3.1rem);
+    text-wrap: balance;
+  }
+}
+
+.proyecto-image {
+  width: 100%;
+  max-height: 28rem;
+  object-fit: cover;
+  display: block;
+  border-top: 1px solid var(--border-color);
+}
+
+.proyecto-body {
+  padding: 1.3rem 1.2rem 1.5rem;
+}
+
+.descripcion {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.85;
+}
+
+.technologies {
+  margin-top: 1.5rem;
+
+  h3 {
+    margin: 0;
+    font-family: var(--font-family-base);
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+}
+
+.tech-list {
+  margin-top: 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.tech-tag {
+  padding: 0.24rem 0.6rem;
+  border: 1px solid rgba(105, 195, 180, 0.35);
+  border-radius: 999px;
+  font-size: 0.73rem;
+  color: var(--primary-color);
+  background: rgba(105, 195, 180, 0.08);
+}
+
+.links {
+  margin-top: 1.6rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.loading {
+  border: 1px dashed rgba(129, 150, 168, 0.42);
+  border-radius: 1rem;
+  padding: 2.2rem 1.5rem;
+  text-align: center;
+
+  p {
+    margin: 0;
+    color: var(--text-secondary);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 6rem var(--spacing-md) 1.5rem;
+  }
+
+  .proyecto-body {
+    padding: 1.1rem;
+  }
+
+  .links {
+    flex-direction: column;
+
+    .btn {
+      width: 100%;
+    }
+  }
+}

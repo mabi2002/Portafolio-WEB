@@ -2,7 +2,6 @@
   <div class="navbar-container">
     <div class="navbar-content">
       <a routerLink="/" class="navbar-logo" (click)="closeMobileMenu()">
-        <span class="logo-icon">⚡</span>
         <span class="logo-text">{{ 'nav.title' | translate }}</span>
       </a>
 
@@ -31,7 +30,6 @@
 
         <div class="navbar-controls">
           <div class="control-group">
-            <label class="control-label">{{ 'navbar.language' | translate }}</label>
             <div class="language-selector">
               <button
                 *ngFor="let lang of availableLanguages"
@@ -44,7 +42,6 @@
           </div>
 
           <div class="control-group">
-            <label class="control-label">{{ 'navbar.themeName' | translate }}</label>
             <button
               class="theme-toggle"
               [class.dark]="(darkMode$ | async)"

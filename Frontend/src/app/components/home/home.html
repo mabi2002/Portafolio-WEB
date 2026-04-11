@@ -1,115 +1,228 @@
 <app-navbar></app-navbar>
 
-<main class="container">
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Desarrollador Full Stack</h1>
-      <p>Creando soluciones web innovadoras con tecnología moderna</p>
-      <div class="hero-buttons">
-        <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
-        <a href="#contacto" class="btn btn-secondary">Conectar</a>
-      </div>
-    </div>
-    <div class="hero-background"></div>
-  </section>
+<main class="portfolio-page">
+  <div class="container portfolio-shell">
+    <aside class="about-sidebar">
+      <div class="sidebar-card">
+        <div class="avatar-wrap">
+          <img *ngIf="perfil?.fotoUrl" [src]="perfil?.fotoUrl" [alt]="perfil?.nombre || 'Perfil'" class="avatar-image">
+          <div *ngIf="!perfil?.fotoUrl" class="avatar-fallback">{{ perfil?.nombre?.charAt(0) || 'M' }}</div>
+        </div>
 
-  <!-- Skills Section -->
-  <section id="habilidades" class="skills-section">
-    <div class="section-header">
-      <h2>Habilidades Técnicas</h2>
-      <p>Tecnologías que domino y utilizo en mis proyectos</p>
-    </div>
+        <h2>{{ perfil?.nombre || 'Tu nombre' }}</h2>
+        <p class="sidebar-role">{{ perfil?.titulo || 'Full Stack Developer' }}</p>
+        <p class="sidebar-bio">{{ perfil?.bio || 'Construyendo experiencias digitales limpias, modernas y funcionales.' }}</p>
 
-    <div class="skills-grid">
-      <!-- Backend -->
-      <div class="skill-card backend">
-        <div class="skill-icon">⚙️</div>
-        <h3>Backend</h3>
-        <p>Java, Spring Boot, Python, Node.js</p>
-      </div>
+        <div class="sidebar-status">
+          <span class="status-dot"></span>
+          <span>Disponible</span>
+          <a *ngIf="perfil?.email" [href]="'mailto:' + perfil?.email">Email</a>
+        </div>
 
-      <!-- Frontend -->
-      <div class="skill-card frontend">
-        <div class="skill-icon">🎨</div>
-        <h3>Frontend</h3>
-        <p>Angular, React, TypeScript, HTML5</p>
-      </div>
-
-      <!-- Database -->
-      <div class="skill-card database">
-        <div class="skill-icon">💾</div>
-        <h3>Base de Datos</h3>
-        <p>MySQL, PostgreSQL, MongoDB</p>
-      </div>
-
-      <!-- Tools -->
-      <div class="skill-card tools">
-        <div class="skill-icon">🛠️</div>
-        <h3>Herramientas</h3>
-        <p>Git, Docker, Linux, AWS</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="proyectos" class="projects-section">
-    <div class="section-header">
-      <h2>Proyectos Destacados</h2>
-      <p>Trabajos recientes que muestran mi expertise</p>
-    </div>
-
-    <div *ngIf="cargando" class="loading">
-      <p>Cargando proyectos...</p>
-    </div>
-
-    <div *ngIf="!cargando && proyectos.length === 0" class="empty-message">
-      <p>No hay proyectos disponibles</p>
-    </div>
-
-    <div class="projects-grid" *ngIf="!cargando && proyectos.length > 0">
-      <article class="project-card" *ngFor="let proyecto of proyectos">
-        <a [routerLink]="['/proyecto', proyecto.id]" class="project-card-link">
-          <div class="project-image" *ngIf="proyecto.imagenUrl">
-            <img [src]="proyecto.imagenUrl" [alt]="proyecto.titulo">
+        <div class="sidebar-stack">
+          <h3>Tech Stack</h3>
+          <div class="stack-tags">
+            <span>Angular</span>
+            <span>TypeScript</span>
+            <span>Java</span>
+            <span>Spring</span>
+            <span>MySQL</span>
+            <span>Docker</span>
           </div>
-          <div class="project-content">
-            <h3>{{ proyecto.titulo }}</h3>
-            <p>{{ proyecto.descripcion }}</p>
+        </div>
 
-            <div class="technologies" *ngIf="proyecto.tecnologias">
-              <span class="tech-tag" *ngFor="let tech of proyecto.tecnologias.split(',')">
-                {{ tech.trim() }}
-              </span>
-            </div>
+        <div class="sidebar-links">
+          <a *ngIf="perfil?.githubUrl" [href]="perfil?.githubUrl" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a *ngIf="perfil?.linkedinUrl" [href]="perfil?.linkedinUrl" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a routerLink="/about">Sobre mi</a>
+        </div>
+      </div>
+    </aside>
 
-            <div class="project-links">
-              <a *ngIf="proyecto.urlGithub" [href]="proyecto.urlGithub"
-                 class="project-link" target="_blank" (click)="$event.stopPropagation()">
-                GitHub
-              </a>
-              <a *ngIf="proyecto.urlDemo" [href]="proyecto.urlDemo"
-                 class="project-link" target="_blank" (click)="$event.stopPropagation()">
-                Demo
-              </a>
+    <div class="portfolio-content">
+      <section class="hero" id="inicio">
+        <div class="hero-aura hero-aura-one"></div>
+
+        <div class="hero-grid">
+          <div class="hero-content">
+            <span class="eyebrow">Disenador y desarrollador</span>
+            <h1>
+              Creando experiencias
+              <span>digitales unicas</span>
+            </h1>
+            <p>
+              Construyo productos web con una mezcla de diseno editorial, codigo robusto y enfoque en
+              rendimiento. Mi objetivo es que cada proyecto se sienta premium y funcional desde el primer scroll.
+            </p>
+
+            <div class="hero-buttons">
+              <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
+              <a href="#contacto" class="btn btn-secondary">Contactar</a>
             </div>
           </div>
-        </a>
-      </article>
-    </div>
-  </section>
 
-  <!-- Contact CTA Section -->
-  <section id="contacto" class="contact-cta-section">
-    <div class="cta-content">
-      <h2>¿Tienes un Proyecto en Mente?</h2>
-      <p>Estoy disponible para colaborar en nuevos proyectos. Déjame saber cómo puedo ayudarte.</p>
-      <div class="cta-buttons">
-        <a href="mailto:tu-email@example.com" class="btn btn-primary">Enviar Email</a>
-        <a routerLink="/about" class="btn btn-secondary">Más Información</a>
-      </div>
+          <aside class="hero-visual" aria-hidden="true">
+            <div class="visual-frame">
+              <div class="visual-inner">
+                <div class="code-line"><span class="token">const</span> developer = {{ '{' }}</div>
+                <div class="code-line indent">name: <span class="token-accent">"Miguel"</span>,</div>
+                <div class="code-line indent">role: <span class="token-accent">"Full Stack"</span>,</div>
+                <div class="code-line indent">focus: <span class="token-accent">"UX + Performance"</span>,</div>
+                <div class="code-line indent">available: <span class="token">true</span></div>
+                <div class="code-line">{{ '}' }}</div>
+              </div>
+            </div>
+            <span class="glyph glyph-top">✦</span>
+            <span class="glyph glyph-bottom">◆</span>
+          </aside>
+        </div>
+
+        <div class="scroll-indicator">
+          <span>Scroll</span>
+          <div class="line"></div>
+        </div>
+      </section>
+
+      <section id="habilidades" class="skills-section">
+        <div class="section-header">
+          <span class="eyebrow">Mi stack</span>
+          <h2>Diseno con criterio, desarrollo con precision</h2>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card">
+            <h3>Frontend</h3>
+            <ul>
+              <li>Angular + TypeScript</li>
+              <li>React + Next.js</li>
+              <li>HTML semantico y accesible</li>
+            </ul>
+          </article>
+
+          <article class="skill-card">
+            <h3>Backend</h3>
+            <ul>
+              <li>Java + Spring Boot</li>
+              <li>APIs REST seguras</li>
+              <li>Arquitectura escalable</li>
+            </ul>
+          </article>
+
+          <article class="skill-card">
+            <h3>Datos</h3>
+            <ul>
+              <li>MySQL y PostgreSQL</li>
+              <li>MongoDB</li>
+              <li>Modelado y optimizacion</li>
+            </ul>
+          </article>
+
+          <article class="skill-card">
+            <h3>Workflow</h3>
+            <ul>
+              <li>Git y CI/CD</li>
+              <li>Docker y Linux</li>
+              <li>Deploy en cloud</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="proyectos" class="projects-section">
+        <div class="projects-head">
+          <div>
+            <span class="eyebrow">Proyectos</span>
+            <h2>Trabajo seleccionado</h2>
+          </div>
+          <a routerLink="/about" class="text-link">Ver perfil completo</a>
+        </div>
+
+        <div *ngIf="cargando" class="loading">
+          <p>Cargando proyectos...</p>
+        </div>
+
+        <div *ngIf="!cargando && proyectos.length === 0" class="empty-message">
+          <p>No hay proyectos disponibles.</p>
+        </div>
+
+        <div *ngIf="!cargando && proyectos.length > 0" class="projects-layout">
+          <div class="featured-grid">
+            <article class="project-card featured" *ngFor="let proyecto of proyectos | slice:0:2">
+              <div class="project-visual" [class.no-image]="!proyecto.imagenUrl">
+                <img *ngIf="proyecto.imagenUrl" [src]="proyecto.imagenUrl" [alt]="proyecto.titulo">
+                <div *ngIf="!proyecto.imagenUrl" class="visual-placeholder">
+                  <span>{{ proyecto.titulo }}</span>
+                </div>
+              </div>
+
+              <div class="project-content">
+                <h3>{{ proyecto.titulo }}</h3>
+                <p>{{ proyecto.descripcion }}</p>
+
+                <div class="technologies" *ngIf="proyecto.tecnologias">
+                  <span class="tech-tag" *ngFor="let tech of proyecto.tecnologias.split(',')">
+                    {{ tech.trim() }}
+                  </span>
+                </div>
+
+                <div class="project-actions">
+                  <a [routerLink]="['/proyecto', proyecto.id]" class="text-link">Ver detalle</a>
+                  <div class="external-links">
+                    <a *ngIf="proyecto.urlGithub" [href]="proyecto.urlGithub" target="_blank" rel="noopener">GitHub</a>
+                    <a *ngIf="proyecto.urlDemo" [href]="proyecto.urlDemo" target="_blank" rel="noopener">Demo</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="compact-grid" *ngIf="proyectos.length > 2">
+            <article class="project-card compact" *ngFor="let proyecto of proyectos | slice:2">
+              <div class="compact-head">
+                <div class="folder-dot"></div>
+                <a [routerLink]="['/proyecto', proyecto.id]" class="text-link">Ver detalle</a>
+              </div>
+
+              <h3>{{ proyecto.titulo }}</h3>
+              <p>{{ proyecto.descripcion }}</p>
+
+              <div class="compact-tech" *ngIf="proyecto.tecnologias">
+                <span *ngFor="let tech of proyecto.tecnologias.split(',')">{{ tech.trim() }}</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" class="contact-section">
+        <div class="contact-grid">
+          <div class="contact-copy">
+            <span class="eyebrow">Contacto</span>
+            <h2>¿Tienes un proyecto en mente?</h2>
+            <p>
+              Si quieres colaborar o necesitas ayuda con tu producto web, podemos hablar y aterrizar una propuesta clara.
+            </p>
+            <a [href]="perfil?.email ? ('mailto:' + perfil?.email) : 'mailto:tu-email@example.com'" class="btn btn-primary">Enviar mensaje</a>
+          </div>
+
+          <div class="contact-links">
+            <a [href]="perfil?.email ? ('mailto:' + perfil?.email) : 'mailto:tu-email@example.com'">
+              <span>Email</span>
+              <strong>{{ perfil?.email || 'tu-email@example.com' }}</strong>
+            </a>
+            <a routerLink="/about">
+              <span>Perfil</span>
+              <strong>Conoce mas sobre mi</strong>
+            </a>
+            <a href="#proyectos">
+              <span>Archivo</span>
+              <strong>Explorar proyectos recientes</strong>
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
-  </section>
+  </div>
 </main>
 
 <app-footer></app-footer>
