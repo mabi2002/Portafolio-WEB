@@ -1,60 +1,235 @@
 <app-navbar></app-navbar>
 
-<main class="container">
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Desarrollador Full Stack</h1>
-      <p>Creando soluciones web innovadoras con tecnología moderna</p>
-      <div class="hero-buttons">
-        <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
-        <a href="/about" class="btn btn-secondary">Acerca de Mí</a>
+<main class="portfolio-shell">
+  <aside class="portfolio-sidebar">
+    <section class="profile-card">
+      <div class="profile-head">
+        <div class="avatar" *ngIf="!cargandoPerfil">
+          <img *ngIf="perfil?.fotoUrl; else initials" [src]="perfil?.fotoUrl" [alt]="perfil?.nombre || 'Perfil'" />
+          <ng-template #initials>
+            <span>{{ nombreCorto }}</span>
+          </ng-template>
+        </div>
+
+        <div class="status-pill">
+          <span class="status-dot"></span>
+          {{ t.availability }}
+        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Projects Section -->
-  <section id="proyectos" class="projects-section">
-    <h2>Proyectos Destacados</h2>
+      <div class="profile-copy">
+        <p class="eyebrow">{{ t.profileEyebrow }}</p>
+        <h1>{{ perfil?.nombre || 'Miguel' }}</h1>
+        <p class="role">{{ perfil?.titulo || t.fallbackRole }}</p>
+        <p class="bio">
+          {{ perfil?.bio || t.fallbackBio }}
+        </p>
+      </div>
 
-    <div *ngIf="cargando" class="loading">
-      <p>Cargando proyectos...</p>
-    </div>
+      <div class="sidebar-section">
+        <div class="section-title">
+          <span>{{ t.stackTitle }}</span>
+          <a routerLink="/" fragment="stack">{{ t.viewProfile }}</a>
+        </div>
+        <div class="badge-list">
+          <span class="badge" *ngFor="let tech of stack">{{ tech }}</span>
+        </div>
+      </div>
 
-    <div *ngIf="!cargando && proyectos.length === 0" class="empty-message">
-      <p>No hay proyectos disponibles</p>
-    </div>
+      <div class="sidebar-section sidebar-section--contact">
+        <div class="section-title">
+          <span>{{ t.contact }}</span>
+        </div>
+        <div class="social-list">
+          <a
+            *ngFor="let social of socialLinks"
+            [href]="socialHref(social.key) || '#'"
+            [class.disabled]="!socialHref(social.key)"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span>{{ social.short }}</span>
+            {{ social.label }}
+          </a>
+        </div>
+      </div>
+    </section>
+  </aside>
 
-    <div class="projects-grid" *ngIf="!cargando && proyectos.length > 0">
-      <article class="project-card" *ngFor="let proyecto of proyectos">
-        <a [routerLink]="['/proyecto', proyecto.id]" class="project-card-link">
-          <div class="project-image" *ngIf="proyecto.imagenUrl">
-            <img [src]="proyecto.imagenUrl" [alt]="proyecto.titulo">
-          </div>
-          <div class="project-content">
-            <h3>{{ proyecto.titulo }}</h3>
-            <p>{{ proyecto.descripcion }}</p>
+  <section class="portfolio-content">
+    <header class="content-hero">
+      <div>
+        <p class="eyebrow">{{ t.heroEyebrow }}</p>
+        <h2>{{ t.heroTitle }}</h2>
+        <p class="intro">
+          {{ t.heroText }}
+        </p>
+      </div>
 
-            <div class="technologies" *ngIf="proyecto.tecnologias">
-              <span class="tech-tag" *ngFor="let tech of proyecto.tecnologias.split(',')">
-                {{ tech.trim() }}
-              </span>
+      <div class="hero-actions">
+        <a href="#proyectos" class="btn btn-primary">{{ t.heroPrimary }}</a>
+        <a href="#stack" class="btn btn-secondary">{{ t.heroSecondary }}</a>
+      </div>
+    </header>
+
+    <section id="proyectos" class="content-section">
+      <div class="section-heading">
+        <div>
+          <h3>{{ t.projectsTitle }}</h3>
+          <p>{{ t.projectsText }}</p>
+        </div>
+      </div>
+
+      <div *ngIf="cargando" class="state-card">
+        <p>{{ t.loadingProjects }}</p>
+      </div>
+
+      <div *ngIf="!cargando && proyectos.length === 0" class="state-card">
+        <p>{{ t.emptyProjects }}</p>
+      </div>
+
+      <div class="projects-grid" *ngIf="!cargando && proyectosPrincipales.length > 0">
+        <article class="project-card" *ngFor="let proyecto of proyectosPrincipales">
+          <a [routerLink]="['/proyecto', proyecto.id]" class="project-card-link">
+            <div class="project-image-frame">
+              <div class="project-image" *ngIf="proyecto.imagenUrl; else placeholderImage">
+                <img [src]="proyecto.imagenUrl" [alt]="proyecto.titulo" />
+              </div>
+              <ng-template #placeholderImage>
+                <div class="project-image project-image--placeholder">
+                  <span>{{ proyecto.titulo }}</span>
+                </div>
+              </ng-template>
             </div>
 
-            <div class="project-links">
-              <a *ngIf="proyecto.urlGithub" [href]="proyecto.urlGithub"
-                 class="project-link" target="_blank" (click)="$event.stopPropagation()">
-                GitHub
-              </a>
-              <a *ngIf="proyecto.urlDemo" [href]="proyecto.urlDemo"
-                 class="project-link" target="_blank" (click)="$event.stopPropagation()">
-                Demo
-              </a>
+            <div class="project-content">
+              <p class="project-meta">{{ t.featuredProject }}</p>
+              <h4>{{ proyecto.titulo }}</h4>
+              <p>{{ proyecto.descripcion }}</p>
+
+              <div class="technologies" *ngIf="proyecto.tecnologias">
+                <span class="tech-tag" *ngFor="let tech of proyecto.tecnologias.split(',')">
+                  {{ tech.trim() }}
+                </span>
+              </div>
+
+              <div class="project-links">
+                <a
+                  *ngIf="proyecto.urlGithub"
+                  [href]="proyecto.urlGithub"
+                  class="project-link"
+                  target="_blank"
+                  rel="noreferrer"
+                  (click)="$event.stopPropagation()"
+                >
+                  {{ t.source }}
+                </a>
+                <a
+                  *ngIf="proyecto.urlDemo"
+                  [href]="proyecto.urlDemo"
+                  class="project-link project-link--light"
+                  target="_blank"
+                  rel="noreferrer"
+                  (click)="$event.stopPropagation()"
+                >
+                  {{ t.website }}
+                </a>
+              </div>
             </div>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section id="trabajos" class="content-section" *ngIf="trabajosAdicionales.length > 0">
+      <div class="section-heading">
+        <div>
+          <h3>{{ t.workTitle }}</h3>
+          <p>{{ t.workText }}</p>
+        </div>
+      </div>
+
+      <div class="work-grid">
+        <article class="work-card" *ngFor="let proyecto of trabajosAdicionales">
+          <a [routerLink]="['/proyecto', proyecto.id]">
+            <div class="work-card__media" *ngIf="proyecto.imagenUrl">
+              <img [src]="proyecto.imagenUrl" [alt]="proyecto.titulo" />
+            </div>
+            <div class="work-card__body">
+              <h4>{{ proyecto.titulo }}</h4>
+              <p>{{ proyecto.descripcion }}</p>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section id="stack" class="content-section">
+      <div class="section-heading">
+        <div>
+          <h3>{{ t.stackTitle }}</h3>
+          <p>{{ t.stackText }}</p>
+        </div>
+      </div>
+
+      <div class="stack-groups">
+        <article class="stack-group" *ngFor="let category of techCategories">
+          <div class="stack-group__header">
+            <h4>{{ categoryLabel(category.key) }}</h4>
           </div>
-        </a>
-      </article>
-    </div>
+
+          <div class="stack-grid">
+            <article class="tech-card" *ngFor="let tech of category.items">
+              <div class="tech-card__icon-shell">
+                <svg class="tech-card__progress" viewBox="0 0 100 100" aria-hidden="true">
+                  <rect class="tech-card__track" x="10" y="10" width="80" height="80" rx="18" ry="18" pathLength="100"></rect>
+                  <rect
+                    class="tech-card__value"
+                    x="10"
+                    y="10"
+                    width="80"
+                    height="80"
+                    rx="18"
+                    ry="18"
+                    pathLength="100"
+                    [attr.stroke-dasharray]="tech.level + ' 100'"
+                  ></rect>
+                </svg>
+                <div class="tech-card__icon">{{ tech.icon }}</div>
+              </div>
+
+              <div class="tech-card__body">
+                <h5>{{ tech.name }}</h5>
+                <div class="tech-card__meta">
+                  <span>{{ t.skillLevel }}</span>
+                  <strong>{{ tech.level }}%</strong>
+                </div>
+              </div>
+            </article>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="educacion" class="content-section">
+      <div class="section-heading">
+        <div>
+          <h3>{{ t.educationTitle }}</h3>
+          <p>{{ t.educationText }}</p>
+        </div>
+      </div>
+
+      <div class="education-list">
+        <article class="education-card" *ngFor="let item of educationItems">
+          <div class="education-card__year">{{ item.year }}</div>
+          <div class="education-card__content">
+            <h4>{{ educationTitle(item) }}</h4>
+            <p class="education-card__school">{{ educationSchool(item) }}</p>
+            <p>{{ educationText(item) }}</p>
+          </div>
+        </article>
+      </div>
+    </section>
   </section>
 </main>
 

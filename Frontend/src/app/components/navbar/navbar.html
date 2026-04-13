@@ -1,11 +1,28 @@
-<nav class="navbar">
-  <div class="container">
-    <div class="nav-content">
-      <a routerLink="/" class="logo">Mi Portfolio</a>
-      <div class="nav-links">
-        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
-        <a routerLink="/about" routerLinkActive="active">Acerca de</a>
-      </div>
+<nav class="topbar">
+  <div class="topbar__inner">
+    <a routerLink="/" class="topbar__brand">Miguel.dev</a>
+
+    <div class="topbar__links">
+      <a
+        *ngFor="let link of links"
+        routerLink="/"
+        [fragment]="link.fragment"
+      >
+        {{ link.label }}
+      </a>
+    </div>
+
+    <div class="topbar__actions">
+      <button class="toggle toggle--theme" type="button" (click)="toggleTheme()" [attr.aria-label]="darkMode ? 'Activar modo claro' : 'Activar modo oscuro'">
+        <span class="toggle__track" [class.is-dark]="darkMode">
+          <span class="toggle__thumb"></span>
+        </span>
+      </button>
+
+      <button class="lang-pill" type="button" (click)="toggleLanguage()">
+        <span [class.active]="currentLanguage === 'es'">ES</span>
+        <span [class.active]="currentLanguage === 'en'">EN</span>
+      </button>
     </div>
   </div>
 </nav>
