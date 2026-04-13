@@ -326,6 +326,12 @@
     var(--card-gradient);
 }
 
+#trabajos {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .section-heading {
   margin-bottom: 1.4rem;
   padding-bottom: 0.9rem;
@@ -337,6 +343,7 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
+  flex: 1;
 }
 
 .project-card,
@@ -852,7 +859,7 @@
 }
 
 .element-badge .label {
-  font-size: 0.9rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: #f1f5f9;
   text-align: left;
@@ -866,7 +873,7 @@
 }
 
 .element-badge .description {
-  font-size: 0.68rem;
+  font-size: 0.88rem;
   color: #cbd5e1;
   font-weight: 600;
   text-align: left;
