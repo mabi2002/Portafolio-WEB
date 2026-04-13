@@ -26,21 +26,26 @@
         </p>
       </div>
 
-      <div class="sidebar-section">
+      <div class="sidebar-section sidebar-section--expandable" [class.is-open]="stackExpanded">
         <div class="section-title">
           <span>{{ t.stackTitle }}</span>
-          <a routerLink="/" fragment="stack">{{ t.viewProfile }}</a>
+          <button type="button" class="sidebar-toggle" (click)="toggleSidebarPanel('stack')">
+            {{ stackExpanded ? '−' : '+' }}
+          </button>
         </div>
-        <div class="badge-list">
+        <div class="badge-list" *ngIf="stackExpanded">
           <span class="badge" *ngFor="let tech of stack">{{ tech }}</span>
         </div>
       </div>
 
-      <div class="sidebar-section sidebar-section--contact">
+      <div class="sidebar-section sidebar-section--contact sidebar-section--expandable" [class.is-open]="contactExpanded">
         <div class="section-title">
           <span>{{ t.contact }}</span>
+          <button type="button" class="sidebar-toggle" (click)="toggleSidebarPanel('contact')">
+            {{ contactExpanded ? '−' : '+' }}
+          </button>
         </div>
-        <div class="social-list">
+        <div class="social-list" *ngIf="contactExpanded">
           <a
             *ngFor="let social of socialLinks"
             [href]="socialHref(social.key) || '#'"
@@ -58,17 +63,84 @@
 
   <section class="portfolio-content">
     <header class="content-hero">
-      <div>
+      <div class="hero-content">
         <p class="eyebrow">{{ t.heroEyebrow }}</p>
-        <h2>{{ t.heroTitle }}</h2>
+        <h2 class="hero-display">
+          <span class="hero-display__line">{{ t.heroTitle }}</span>
+          <span class="hero-display__line hero-display__line--accent">{{ t.heroTitleAccent }}</span>
+        </h2>
         <p class="intro">
           {{ t.heroText }}
         </p>
+
+        <div class="hero-actions">
+          <a href="#proyectos" class="btn btn-primary">{{ t.heroPrimary }}</a>
+          <a href="#stack" class="btn btn-secondary">{{ t.heroSecondary }}</a>
+        </div>
       </div>
 
-      <div class="hero-actions">
-        <a href="#proyectos" class="btn btn-primary">{{ t.heroPrimary }}</a>
-        <a href="#stack" class="btn btn-secondary">{{ t.heroSecondary }}</a>
+      <!-- Floating Elements Section -->
+      <div class="hero-floating-elements">
+        <div class="floating-orb">
+          <!-- Frontend Technologies -->
+          <div class="orbit-element orbit-1">
+            <div class="element-badge">
+              <span class="icon">◆</span>
+              <span class="label">Angular</span>
+            </div>
+          </div>
+          <div class="orbit-element orbit-2">
+            <div class="element-badge">
+              <span class="icon">◇</span>
+              <span class="label">TypeScript</span>
+            </div>
+          </div>
+          <div class="orbit-element orbit-3">
+            <div class="element-badge">
+              <span class="icon">▲</span>
+              <span class="label">Frontend</span>
+            </div>
+          </div>
+
+          <!-- Backend Technologies -->
+          <div class="orbit-element orbit-4">
+            <div class="element-badge">
+              <span class="icon">■</span>
+              <span class="label">Node.js</span>
+            </div>
+          </div>
+          <div class="orbit-element orbit-5">
+            <div class="element-badge">
+              <span class="icon">◾</span>
+              <span class="label">Express</span>
+            </div>
+          </div>
+          <div class="orbit-element orbit-6">
+            <div class="element-badge">
+              <span class="icon">⬢</span>
+              <span class="label">Backend</span>
+            </div>
+          </div>
+
+          <!-- Data & Tools -->
+          <div class="orbit-element orbit-7">
+            <div class="element-badge">
+              <span class="icon">◉</span>
+              <span class="label">Data</span>
+            </div>
+          </div>
+          <div class="orbit-element orbit-8">
+            <div class="element-badge">
+              <span class="icon">★</span>
+              <span class="label">REST API</span>
+            </div>
+          </div>
+
+          <!-- Center Circle -->
+          <div class="orbit-center">
+            <span class="center-icon">⚡</span>
+          </div>
+        </div>
       </div>
     </header>
 

@@ -43,6 +43,8 @@ export class Home implements OnInit {
   cargando = true;
   cargandoPerfil = true;
   currentLanguage = 'es';
+  stackExpanded = false;
+  contactExpanded = false;
   readonly stack = [
     'Angular',
     'TypeScript',
@@ -199,7 +201,8 @@ export class Home implements OnInit {
           viewProfile: 'Profile',
           contact: 'Contact',
           heroEyebrow: 'Selected Work',
-          heroTitle: 'My Projects',
+          heroTitle: 'Design',
+          heroTitleAccent: '& Code',
           heroText:
             'A curated selection of projects focused on clean UI, performance, and a polished dark aesthetic inspired by your reference.',
           heroPrimary: 'View projects',
@@ -234,7 +237,8 @@ export class Home implements OnInit {
           viewProfile: 'Perfil',
           contact: 'Contacto',
           heroEyebrow: 'Selected Work',
-          heroTitle: 'My Projects',
+          heroTitle: 'Diseno',
+          heroTitleAccent: '& Codigo',
           heroText:
             'Una seleccion de proyectos con enfoque en UI limpia, performance y una presencia visual oscura inspirada en la referencia que compartiste.',
           heroPrimary: 'Ver proyectos',
@@ -280,5 +284,14 @@ export class Home implements OnInit {
 
   educationText(item: EducationItem): string {
     return this.currentLanguage === 'en' ? item.textEn : item.textEs;
+  }
+
+  toggleSidebarPanel(panel: 'stack' | 'contact') {
+    if (panel === 'stack') {
+      this.stackExpanded = !this.stackExpanded;
+      return;
+    }
+
+    this.contactExpanded = !this.contactExpanded;
   }
 }

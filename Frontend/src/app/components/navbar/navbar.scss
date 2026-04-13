@@ -2,9 +2,10 @@
   position: sticky;
   top: 0;
   z-index: 40;
-  backdrop-filter: blur(18px);
+  backdrop-filter: blur(20px);
   background: var(--nav-surface);
   border-bottom: 1px solid var(--nav-border);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
 }
 
 .topbar__inner {
@@ -23,6 +24,19 @@
   letter-spacing: 0.22em;
   text-transform: uppercase;
   font-weight: 700;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: calc(100% + 10px);
+    top: 50%;
+    width: 28px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent-color), transparent);
+    transform: translateY(-50%);
+    opacity: 0.75;
+  }
 }
 
 .topbar__links {
@@ -41,8 +55,8 @@
 
     &:hover {
       color: var(--text-primary);
-      border-color: var(--chip-border);
-      background: var(--chip-bg);
+      border-color: var(--card-border-strong);
+      background: linear-gradient(180deg, rgba(51, 166, 199, 0.08), transparent 130%), var(--chip-bg);
     }
   }
 }
@@ -72,7 +86,7 @@
   transition: background 180ms ease;
 
   &.is-dark {
-    background: rgba(34, 197, 94, 0.22);
+    background: rgba(51, 166, 199, 0.24);
   }
 }
 
@@ -112,8 +126,8 @@
     font-weight: 700;
 
     &.active {
-      background: var(--text-primary);
-      color: var(--surface-0);
+      background: var(--accent-color);
+      color: #061015;
     }
   }
 }
@@ -137,6 +151,10 @@
 
   .topbar__brand {
     letter-spacing: 0.14em;
+
+    &::after {
+      display: none;
+    }
   }
 
   .topbar__links {
