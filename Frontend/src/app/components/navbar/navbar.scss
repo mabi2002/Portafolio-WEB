@@ -1,0 +1,116 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: transparent;
+  padding: 2rem 0;
+  border-bottom: none;
+}
+
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    padding: 0 1.5rem;
+  }
+}
+
+.navbar-brand {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
+.navbar-links {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    gap: 1.5rem;
+  }
+}
+
+.nav-link {
+  position: relative;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding-bottom: 0.5rem;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    color: var(--text-primary);
+
+    &::after {
+      width: 100%;
+    }
+  }
+
+  &.active {
+    color: var(--text-primary);
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+// Estilos para tema oscuro
+:root[data-theme="dark"] {
+  .navbar-brand {
+    color: var(--text-primary);
+  }
+
+  .nav-link {
+    color: var(--text-secondary);
+
+    &:hover,
+    &.active {
+      color: var(--primary-color);
+    }
+  }
+}
+
+// Estilos para tema claro
+:root[data-theme="light"] {
+  .navbar-brand {
+    color: var(--text-primary);
+  }
+
+  .nav-link {
+    color: var(--text-secondary);
+
+    &:hover,
+    &.active {
+      color: var(--primary-color);
+    }
+  }
+}
+
