@@ -840,7 +840,7 @@
 }
 
 .element-badge .icon {
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   color: rgba(168, 85, 247, 0.95);
   filter: none;
   z-index: 1;
@@ -852,7 +852,7 @@
 }
 
 .element-badge .label {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-weight: 800;
   color: #f1f5f9;
   text-align: left;
@@ -866,7 +866,7 @@
 }
 
 .element-badge .description {
-  font-size: 0.55rem;
+  font-size: 0.68rem;
   color: #cbd5e1;
   font-weight: 600;
   text-align: left;
@@ -970,45 +970,45 @@
 // Complex orbital paths - FLOATING IN CORNERS (gentle up/down) - ADJUSTED FOR LARGER ORB
 @keyframes orbitPath1Float {
   0% {
-    transform: translate(-50%, -50%) translateY(-230px) translateX(0) scale(0.95);
+    transform: translate(-50%, -50%) translateY(-180px) translateX(0) scale(0.95);
     opacity: 0.8;
   }
   50% {
-    transform: translate(-50%, -50%) translateY(-195px) translateX(0) scale(1);
+    transform: translate(-50%, -50%) translateY(-150px) translateX(0) scale(1);
     opacity: 1;
   }
   100% {
-    transform: translate(-50%, -50%) translateY(-230px) translateX(0) scale(0.95);
+    transform: translate(-50%, -50%) translateY(-180px) translateX(0) scale(0.95);
     opacity: 0.8;
   }
 }
 
 @keyframes orbitPath2Float {
   0% {
-    transform: translate(-50%, -50%) translateY(160px) translateX(-195px) scale(0.94);
+    transform: translate(-50%, -50%) translateY(130px) translateX(-150px) scale(0.94);
     opacity: 0.78;
   }
   50% {
-    transform: translate(-50%, -50%) translateY(195px) translateX(-195px) scale(1);
+    transform: translate(-50%, -50%) translateY(160px) translateX(-150px) scale(1);
     opacity: 1;
   }
   100% {
-    transform: translate(-50%, -50%) translateY(160px) translateX(-195px) scale(0.94);
+    transform: translate(-50%, -50%) translateY(130px) translateX(-150px) scale(0.94);
     opacity: 0.78;
   }
 }
 
 @keyframes orbitPath3Float {
   0% {
-    transform: translate(-50%, -50%) translateY(140px) translateX(195px) scale(0.96);
+    transform: translate(-50%, -50%) translateY(120px) translateX(150px) scale(0.96);
     opacity: 0.82;
   }
   50% {
-    transform: translate(-50%, -50%) translateY(175px) translateX(195px) scale(1);
+    transform: translate(-50%, -50%) translateY(150px) translateX(150px) scale(1);
     opacity: 1;
   }
   100% {
-    transform: translate(-50%, -50%) translateY(140px) translateX(195px) scale(0.96);
+    transform: translate(-50%, -50%) translateY(120px) translateX(150px) scale(0.96);
     opacity: 0.82;
   }
 }
