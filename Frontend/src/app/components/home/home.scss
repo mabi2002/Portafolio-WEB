@@ -773,8 +773,8 @@
 // Orbital elements container - FLOATING IN CORNERS (horizontal orientation)
 .orbit-element {
   position: absolute;
-  width: 180px;
-  height: 95px;
+  width: 220px;
+  height: 75px;
   top: 50%;
   left: 50%;
   transform-origin: center;
@@ -803,13 +803,13 @@
   height: 100%;
   
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  gap: 0.35rem;
-  padding: 0.7rem 0.8rem;
+  justify-content: flex-start;
+  gap: 0.6rem;
+  padding: 0.6rem 0.7rem;
   
-  border-radius: 14px;
+  border-radius: 12px;
   background: rgba(30, 41, 59, 0.92);
   border: 2px solid rgba(168, 85, 247, 0.5);
   backdrop-filter: blur(20px);
@@ -840,33 +840,36 @@
 }
 
 .element-badge .icon {
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: rgba(168, 85, 247, 0.95);
   filter: none;
   z-index: 1;
   order: 1;
+  flex-shrink: 0;
 }
 
 .element-badge .label {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 800;
   color: #f1f5f9;
-  text-align: center;
+  text-align: left;
   letter-spacing: 0.05em;
   z-index: 1;
   display: block;
   order: 2;
+  line-height: 1;
 }
 
 .element-badge .description {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   color: #cbd5e1;
   font-weight: 600;
-  text-align: center;
-  line-height: 1.2;
+  text-align: left;
+  line-height: 1.1;
   z-index: 1;
   opacity: 0.85;
   order: 3;
+  display: none;
 }
 
 // ========================================
