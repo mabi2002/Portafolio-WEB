@@ -1,47 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 /* ==================== CSS CUSTOM PROPERTIES & VARIABLES ==================== */
 
 :root[data-theme="light"] {
-  --primary-color: #0f172a;
-  --secondary-color: #556274;
-  --accent-color: #33a6c7;
-  --success-color: #22c55e;
+  --primary-color: #475569;
+  --secondary-color: #64748b;
+  --accent-color: oklch(0.72 0.12 185);
+  --success-color: oklch(0.72 0.12 185);
 
-  --bg-primary: #f5f6fb;
-  --bg-secondary: #eff1f8;
-  --bg-tertiary: #e4e8f1;
+  --bg-primary: #ffffff;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #ffffff;
 
-  --text-primary: #111827;
-  --text-secondary: #556274;
-  --text-tertiary: #7a8597;
+  --text-primary: #475569;
+  --text-secondary: #475569;
+  --text-tertiary: #64748b;
 
-  --border-color: rgba(16, 24, 32, 0.08);
-  --border-light: rgba(16, 24, 32, 0.04);
+  --border-color: rgba(51, 166, 199, 0.28);
+  --border-light: rgba(51, 166, 199, 0.15);
 
-  --surface-0: #fbfcff;
-  --surface-1: #f2f4fa;
-  --inner-surface: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.58));
-  --nav-surface: linear-gradient(180deg, rgba(245, 246, 251, 0.8), rgba(245, 246, 251, 0.54));
-  --nav-border: rgba(16, 24, 32, 0.06);
-  --card-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.68), rgba(243, 245, 251, 0.48));
+  --surface-0: #ffffff;
+  --surface-1: #ffffff;
+  --inner-surface: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
+  --nav-surface: linear-gradient(180deg, #0d5d6d, #0a4a56);
+  --nav-border: rgba(51, 166, 199, 0.25);
+  --nav-text: #ffffff;
+  --nav-muted: rgba(255, 255, 255, 0.7);
+  --card-gradient: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
   --hero-gradient:
-    radial-gradient(circle at 18% 18%, rgba(51, 166, 199, 0.18), transparent 30%),
-    radial-gradient(circle at 85% 8%, rgba(17, 24, 39, 0.05), transparent 25%),
-    linear-gradient(180deg, rgba(252, 253, 255, 0.84), rgba(240, 242, 249, 0.72));
-  --card-border: rgba(16, 24, 32, 0.045);
-  --card-border-strong: rgba(51, 166, 199, 0.18);
-  --chip-bg: rgba(255, 255, 255, 0.44);
-  --chip-border: rgba(16, 24, 32, 0.06);
-  --panel-shadow: 0 18px 48px rgba(39, 44, 74, 0.08);
-  --grid-line: rgba(16, 24, 32, 0.035);
-  --muted-strong: #69758a;
-  --progress-track: rgba(16, 24, 32, 0.08);
+    radial-gradient(circle at 18% 18%, rgba(51, 166, 199, 0.12), transparent 30%),
+    radial-gradient(circle at 85% 8%, rgba(15, 23, 42, 0.03), transparent 25%),
+    linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
+  --card-border: rgba(51, 166, 199, 0.15);
+  --card-border-strong: rgba(51, 166, 199, 0.25);
+  --chip-bg: rgba(51, 166, 199, 0.08);
+  --chip-border: rgba(51, 166, 199, 0.2);
+  --panel-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+  --grid-line: rgba(51, 166, 199, 0.08);
+  --muted-strong: #78909c;
+  --progress-track: rgba(51, 166, 199, 0.15);
 
-  --shadow-sm: 0 8px 24px rgba(15, 23, 42, 0.08);
-  --shadow-md: 0 12px 32px rgba(15, 23, 42, 0.12);
-  --shadow-lg: 0 18px 50px rgba(15, 23, 42, 0.16);
-  --shadow-xl: 0 28px 90px rgba(15, 23, 42, 0.2);
+  --shadow-sm: 0 4px 12px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 8px 20px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.1);
+  --shadow-xl: 0 18px 50px rgba(15, 23, 42, 0.12);
 }
 
 :root[data-theme="dark"] {
@@ -69,6 +71,8 @@
   --inner-surface: oklch(0.13 0.015 250);
   --nav-surface: oklch(0.13 0.015 250);
   --nav-border: oklch(0.25 0.015 250 / 0.15);
+  --nav-text: oklch(0.95 0.01 250);
+  --nav-muted: oklch(0.60 0.02 250);
   --card-gradient: oklch(0.13 0.015 250);
   --hero-gradient: oklch(0.13 0.015 250);
   --card-border: oklch(0.25 0.015 250 / 0.15);
@@ -95,10 +99,10 @@
   --spacing-2xl: 3rem;
   --spacing-3xl: 4rem;
 
-  --font-family-base: 'Inter', 'Segoe UI', 'Helvetica Neue', sans-serif;
-  --font-family-display: 'Merriweather', Georgia, 'Times New Roman', serif;
-  --font-family-accent: 'Merriweather', 'Times New Roman', serif;
-  --font-family-mono: 'Courier New', monospace;
+  --font-family-base: 'Figtree', 'Segoe UI', 'Helvetica Neue', sans-serif;
+  --font-family-display: 'Space Grotesk', 'Trebuchet MS', sans-serif;
+  --font-family-accent: 'Space Grotesk', sans-serif;
+  --font-family-mono: 'Figtree', monospace;
 
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
@@ -149,10 +153,7 @@ html {
 
 body {
   font-family: var(--font-family-base);
-  background:
-    radial-gradient(circle at 12% 10%, rgba(51, 166, 199, 0.16), transparent 22%),
-    radial-gradient(circle at 86% 6%, rgba(255, 255, 255, 0.04), transparent 18%),
-    linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 54%, var(--bg-primary) 100%);
+  background: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
   transition: background-color var(--transition-base), color var(--transition-base);

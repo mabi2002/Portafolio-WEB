@@ -19,7 +19,7 @@
 }
 
 .topbar__brand {
-  color: var(--text-primary);
+  color: var(--nav-text);
   font-size: 0.82rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -46,7 +46,7 @@
   gap: 0.4rem;
 
   a {
-    color: var(--muted-strong);
+    color: var(--nav-muted);
     font-size: 0.82rem;
     padding: 0.45rem 0.8rem;
     border-radius: 999px;
@@ -54,9 +54,9 @@
     transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease;
 
     &:hover {
-      color: var(--text-primary);
-      border-color: var(--card-border-strong);
-      background: linear-gradient(180deg, rgba(51, 166, 199, 0.08), transparent 130%), var(--chip-bg);
+      color: var(--nav-text);
+      border-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.08);
     }
   }
 }
@@ -72,47 +72,46 @@
   background: transparent;
   padding: 0;
   cursor: pointer;
-}
-
-.toggle__track {
-  width: 52px;
-  height: 28px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  padding: 3px;
-  border-radius: 999px;
-  background: rgba(246, 246, 247, 0.12);
-  border: 1px solid var(--chip-border);
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   transition: background 180ms ease;
 
-  &.is-dark {
-    background: rgba(51, 166, 199, 0.24);
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  i {
+    font-size: 1.3rem;
+    color: var(--nav-text);
+    transition: color 180ms ease, transform 180ms ease;
+  }
+
+  &:active i {
+    transform: scale(0.9);
   }
 }
 
-.toggle__thumb {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #f4f4f5;
-  transform: translateX(0);
-  transition: transform 180ms ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+.toggle__track {
+  display: none;
 }
 
-.toggle__track.is-dark .toggle__thumb {
-  transform: translateX(24px);
+.toggle__thumb {
+  display: none;
 }
 
 .lang-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
-  border: 1px solid var(--chip-border);
-  background: var(--chip-bg);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
   border-radius: 999px;
   padding: 0.25rem;
-  color: var(--muted-strong);
+  color: var(--nav-muted);
   cursor: pointer;
 
   span {
@@ -127,7 +126,7 @@
 
     &.active {
       background: var(--accent-color);
-      color: #061015;
+      color: #ffffff;
     }
   }
 }
