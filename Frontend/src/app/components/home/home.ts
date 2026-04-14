@@ -13,6 +13,7 @@ interface TechItem {
   name: string;
   icon: string;
   level: number;
+  color?: string;
 }
 
 interface TechCategory {
@@ -43,6 +44,8 @@ export class Home implements OnInit {
   cargando = true;
   cargandoPerfil = true;
   currentLanguage = 'es';
+  stackExpanded = false;
+  contactExpanded = false;
   readonly stack = [
     'Angular',
     'TypeScript',
@@ -62,30 +65,30 @@ export class Home implements OnInit {
     {
       key: 'frontend',
       items: [
-        { name: 'Angular', icon: 'NG', level: 92 },
-        { name: 'TypeScript', icon: 'TS', level: 89 },
-        { name: 'SCSS', icon: 'SC', level: 84 },
-        { name: 'HTML', icon: 'HT', level: 95 },
+        { name: 'Angular', icon: 'fab fa-angular', level: 92, color: '#DD0031' },
+        { name: 'TypeScript', icon: 'fab fa-js', level: 89, color: '#3178C6' },
+        { name: 'SCSS', icon: 'fab fa-sass', level: 84, color: '#C6538C' },
+        { name: 'HTML', icon: 'fab fa-html5', level: 95, color: '#E34C26' },
       ],
     },
     {
       key: 'backend',
       items: [
-        { name: 'Node.js', icon: 'ND', level: 86 },
-        { name: 'Express', icon: 'EX', level: 81 },
-        { name: 'REST API', icon: 'AP', level: 90 },
-        { name: 'MongoDB', icon: 'MG', level: 78 },
+        { name: 'Node.js', icon: 'fab fa-node-js', level: 86, color: '#339933' },
+        { name: 'Express', icon: 'fas fa-cube', level: 81, color: '#000000' },
+        { name: 'REST API', icon: 'fas fa-code', level: 90, color: '#FF6C37' },
+        { name: 'MongoDB', icon: 'fas fa-leaf', level: 78, color: '#47A248' },
       ],
     },
     {
       key: 'tools',
       items: [
-        { name: 'Git', icon: 'GT', level: 88 },
-        { name: 'Vite', icon: 'VT', level: 74 },
-        { name: 'Figma', icon: 'FG', level: 67 },
-        { name: 'Postman', icon: 'PM', level: 79 },
+        { name: 'Git', icon: 'fab fa-git-alt', level: 88, color: '#F1502F' },
+        { name: 'Vite', icon: 'fas fa-zap', level: 74, color: '#646CFF' },
+        { name: 'Figma', icon: 'fab fa-figma', level: 67, color: '#F24E1E' },
+        { name: 'Postman', icon: 'fas fa-envelope', level: 79, color: '#FF6C37' },
       ],
-    },
+    }
   ];
   readonly educationItems: EducationItem[] = [
     {
@@ -199,7 +202,8 @@ export class Home implements OnInit {
           viewProfile: 'Profile',
           contact: 'Contact',
           heroEyebrow: 'Selected Work',
-          heroTitle: 'My Projects',
+          heroTitle: 'Design',
+          heroTitleAccent: '& Code',
           heroText:
             'A curated selection of projects focused on clean UI, performance, and a polished dark aesthetic inspired by your reference.',
           heroPrimary: 'View projects',
@@ -234,7 +238,8 @@ export class Home implements OnInit {
           viewProfile: 'Perfil',
           contact: 'Contacto',
           heroEyebrow: 'Selected Work',
-          heroTitle: 'My Projects',
+          heroTitle: 'Diseno',
+          heroTitleAccent: '& Codigo',
           heroText:
             'Una seleccion de proyectos con enfoque en UI limpia, performance y una presencia visual oscura inspirada en la referencia que compartiste.',
           heroPrimary: 'Ver proyectos',
@@ -280,5 +285,14 @@ export class Home implements OnInit {
 
   educationText(item: EducationItem): string {
     return this.currentLanguage === 'en' ? item.textEn : item.textEs;
+  }
+
+  toggleSidebarPanel(panel: 'stack' | 'contact') {
+    if (panel === 'stack') {
+      this.stackExpanded = !this.stackExpanded;
+      return;
+    }
+
+    this.contactExpanded = !this.contactExpanded;
   }
 }

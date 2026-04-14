@@ -26,30 +26,34 @@
         </p>
       </div>
 
-      <div class="sidebar-section">
+      <div class="sidebar-section sidebar-section--expandable" [class.is-open]="stackExpanded">
         <div class="section-title">
           <span>{{ t.stackTitle }}</span>
-          <a routerLink="/" fragment="stack">{{ t.viewProfile }}</a>
+          <button type="button" class="sidebar-toggle" (click)="toggleSidebarPanel('stack')">
+            {{ stackExpanded ? '−' : '+' }}
+          </button>
         </div>
-        <div class="badge-list">
+        <div class="badge-list" *ngIf="stackExpanded">
           <span class="badge" *ngFor="let tech of stack">{{ tech }}</span>
         </div>
       </div>
 
-      <div class="sidebar-section sidebar-section--contact">
+      <div class="sidebar-section sidebar-section--contact sidebar-section--expandable" [class.is-open]="contactExpanded">
         <div class="section-title">
           <span>{{ t.contact }}</span>
+          <button type="button" class="sidebar-toggle" (click)="toggleSidebarPanel('contact')">
+            {{ contactExpanded ? '−' : '+' }}
+          </button>
         </div>
-        <div class="social-list">
-          <a
-            *ngFor="let social of socialLinks"
-            [href]="socialHref(social.key) || '#'"
-            [class.disabled]="!socialHref(social.key)"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span>{{ social.short }}</span>
-            {{ social.label }}
+        <div class="social-list" *ngIf="contactExpanded">
+          <a href="https://github.com/mabi2002" target="_blank" rel="noreferrer" class="social-link">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://linkedin.com/in/miguelbarraza" target="_blank" rel="noreferrer" class="social-link">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="mailto:info@migueldev.com" class="social-link">
+            <i class="fas fa-envelope"></i>
           </a>
         </div>
       </div>
@@ -58,17 +62,59 @@
 
   <section class="portfolio-content">
     <header class="content-hero">
-      <div>
+      <div class="hero-content">
         <p class="eyebrow">{{ t.heroEyebrow }}</p>
-        <h2>{{ t.heroTitle }}</h2>
+        <h2 class="hero-display">
+          <span class="hero-display__line">{{ t.heroTitle }}</span>
+          <span class="hero-display__line hero-display__line--accent">{{ t.heroTitleAccent }}</span>
+        </h2>
         <p class="intro">
           {{ t.heroText }}
         </p>
+
+        <div class="hero-actions">
+          <a href="#proyectos" class="btn btn-primary">{{ t.heroPrimary }}</a>
+          <a href="#stack" class="btn btn-secondary">{{ t.heroSecondary }}</a>
+        </div>
       </div>
 
-      <div class="hero-actions">
-        <a href="#proyectos" class="btn btn-primary">{{ t.heroPrimary }}</a>
-        <a href="#stack" class="btn btn-secondary">{{ t.heroSecondary }}</a>
+      <!-- Floating Elements Section -->
+      <div class="hero-floating-elements">
+        <div class="floating-orb">
+          <!-- Three Main Technologies -->
+          <div class="orbit-element orbit-1">
+            <div class="element-badge">
+              <span class="icon">⚛</span>
+              <span class="label">React</span>
+              <span class="description">Redux, Router, Hooks</span>
+            </div>
+          </div>
+          <div class="orbit-element orbit-2">
+            <div class="element-badge">
+              <span class="icon">&#123;&#125;</span>
+              <span class="label">JavaScript</span>
+              <span class="description">ES6+, TypeScript, jQuery</span>
+            </div>
+          </div>
+          <div class="orbit-element orbit-3">
+            <div class="element-badge">
+              <span class="icon">⬡</span>
+              <span class="label">Node.js</span>
+              <span class="description">Express, Socket.io, MongoDB</span>
+            </div>
+          </div>
+
+          <!-- Center Circle -->
+          <div class="orbit-center">
+            <span class="center-icon">&lt;/&gt;</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator">
+        <span class="scroll-indicator-text">Scroll</span>
+        <div class="scroll-indicator-icon"></div>
       </div>
     </header>
 
@@ -195,7 +241,7 @@
                     [attr.stroke-dasharray]="tech.level + ' 100'"
                   ></rect>
                 </svg>
-                <div class="tech-card__icon">{{ tech.icon }}</div>
+                <i [class]="'tech-card__icon ' + tech.icon" [style.color]="tech.color"></i>
               </div>
 
               <div class="tech-card__body">
