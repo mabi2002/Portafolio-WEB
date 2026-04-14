@@ -69,7 +69,7 @@ export class Home implements OnInit {
       key: 'backend',
       items: [
         { name: 'Node.js', icon: 'fab fa-node-js', level: 86, color: '#339933' },
-        { name: 'Express', icon: 'fas fa-cube', level: 81, color: '#000000' },
+        { name: 'Python', icon: 'fab fa-python', level: 81, color: '#3776AB' },
         { name: 'REST API', icon: 'fas fa-code', level: 90, color: '#FF6C37' },
         { name: 'MongoDB', icon: 'fas fa-leaf', level: 78, color: '#47A248' },
       ],
@@ -79,7 +79,7 @@ export class Home implements OnInit {
       items: [
         { name: 'Git', icon: 'fab fa-git-alt', level: 88, color: '#F1502F' },
         { name: 'Vite', icon: 'fas fa-zap', level: 74, color: '#646CFF' },
-        { name: 'Figma', icon: 'fab fa-figma', level: 67, color: '#F24E1E' },
+        { name: 'Power BI', icon: 'fas fa-chart-bar', level: 70, color: '#F2C811' },
         { name: 'Postman', icon: 'fas fa-envelope', level: 79, color: '#FF6C37' },
       ],
     }
@@ -214,7 +214,7 @@ export class Home implements OnInit {
           heroSecondary: 'Explore stack',
           projectsTitle: 'My Projects',
           projectsText:
-            'Large cards, clear hierarchy, and subtle accents so the work stays at the center.',
+            'Some of my personal projects that I have dedicated time and effort to, which have helped shape me as a professional.',
           featuredProject: 'Featured Project',
           loadingProjects: 'Loading projects...',
           emptyProjects: 'No projects available yet.',
@@ -225,7 +225,7 @@ export class Home implements OnInit {
             'Professional experience and key achievements in my career.',
           stackTitle: 'Tech Stack',
           stackText:
-            'Grouped by category with a square progress outline that wraps the icon according to the skill level.',
+            'This section showcases the technologies and tools I use in my work and projects.',
           educationTitle: 'Education',
           educationText:
             'A compact, elegant summary of the training path behind the projects.',
@@ -251,7 +251,7 @@ export class Home implements OnInit {
           heroSecondary: 'Ver stack',
           projectsTitle: 'My Projects',
           projectsText:
-            'Tarjetas amplias, jerarquia clara y acentos minimos para que el trabajo sea el protagonista.',
+            'Algunos de mis proyectos personales en los que he dedicado tiempo y esfuerzo que me han formado como profesional.',
           featuredProject: 'Proyecto destacado',
           loadingProjects: 'Cargando proyectos...',
           emptyProjects: 'No hay proyectos disponibles todavia.',
@@ -262,7 +262,7 @@ export class Home implements OnInit {
             'Mi experiencia profesional y logros clave en mi carrera.',
           stackTitle: 'Stack Tecnologico',
           stackText:
-            'Organizado por categorias con un borde progresivo cuadrado que rodea el icono segun el nivel de habilidad.',
+            'En esta seccion se muestran las tecnologias y herramientas que utilizo en mi trabajo y proyectos.',
           educationTitle: 'Educacion',
           educationText:
             'Un resumen elegante y compacto del camino formativo que respalda los proyectos.',
@@ -277,20 +277,16 @@ export class Home implements OnInit {
     return this.t[key as 'frontend' | 'backend' | 'tools'] ?? key;
   }
 
-  educationTitle(item: EducationItem): string {
-    return this.currentLanguage === 'en' ? item.titleEn : item.titleEs;
+  educationTitle(item: Education): string {
+    return this.currentLanguage === 'en' ? (item.titleEn ?? item.titleEs) : item.titleEs;
   }
 
-  educationSchool(item: EducationItem): string {
-    if (this.perfil?.educacion && item === this.educationItems[0]) {
-      return this.perfil.educacion;
-    }
-
-    return this.currentLanguage === 'en' ? item.schoolEn : item.schoolEs;
+  educationSchool(item: Education): string {
+    return this.currentLanguage === 'en' ? (item.schoolEn ?? item.schoolEs) : item.schoolEs;
   }
 
-  educationText(item: EducationItem): string {
-    return this.currentLanguage === 'en' ? item.textEn : item.textEs;
+  educationText(item: Education): string {
+    return this.currentLanguage === 'en' ? (item.textEn ?? item.textEs) : item.textEs;
   }
 
   toggleSidebarPanel(panel: 'stack' | 'contact') {

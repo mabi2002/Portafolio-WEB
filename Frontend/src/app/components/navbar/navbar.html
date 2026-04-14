@@ -10,14 +10,12 @@
       >
         {{ link.label }}
       </a>
-    </div>
 
-    <div class="topbar__actions">
-      <button class="toggle toggle--theme" type="button" (click)="toggleTheme()" [attr.aria-label]="darkMode ? 'Activar modo claro' : 'Activar modo oscuro'">
+      <button class="topbar__button topbar__button--theme" type="button" (click)="toggleTheme()" [attr.aria-label]="darkMode ? 'Activar modo claro' : 'Activar modo oscuro'">
         <i class="fa-solid" [ngClass]="darkMode ? 'fa-sun' : 'fa-moon'"></i>
       </button>
 
-      <button class="lang-pill" type="button" (click)="toggleLanguage()">
+      <button class="topbar__button topbar__button--lang" type="button" (click)="toggleLanguage()">
         <span [class.active]="currentLanguage === 'es'">ES</span>
         <span [class.active]="currentLanguage === 'en'">EN</span>
       </button>
