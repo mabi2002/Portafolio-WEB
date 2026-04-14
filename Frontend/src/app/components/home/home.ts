@@ -31,6 +31,17 @@ interface EducationItem {
   textEn: string;
 }
 
+interface WorkExperience {
+  company: string;
+  roleEs: string;
+  roleEn: string;
+  periodEs: string;
+  periodEn: string;
+  descriptionEs: string;
+  descriptionEn: string;
+  technologies: string[];
+}
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -111,6 +122,19 @@ export class Home implements OnInit {
     },
   ];
 
+  readonly workExperience: WorkExperience[] = [
+    {
+      company: 'Tu Empresa (Agregar aquí)',
+      roleEs: 'Rol/Posición',
+      roleEn: 'Role/Position',
+      periodEs: 'Mes Año - Mes Año',
+      periodEn: 'Month Year - Month Year',
+      descriptionEs: 'Descripción de tus responsabilidades y logros en esta empresa.',
+      descriptionEn: 'Description of your responsibilities and achievements at this company.',
+      technologies: ['Angular', 'TypeScript', 'Node.js'],
+    },
+  ];
+
   constructor(
     private proyectoService: ProyectoService,
     private perfilService: PerfilService,
@@ -159,11 +183,7 @@ export class Home implements OnInit {
   }
 
   get proyectosPrincipales(): Proyecto[] {
-    return this.proyectos.slice(0, 4);
-  }
-
-  get trabajosAdicionales(): Proyecto[] {
-    return this.proyectos.slice(4);
+    return this.proyectos;
   }
 
   get nombreCorto(): string {
@@ -216,8 +236,9 @@ export class Home implements OnInit {
           emptyProjects: 'No projects available yet.',
           source: 'Source',
           website: 'Website',
-          workTitle: 'My Work',
-          workText: 'An additional gallery for collaborations and extra work.',
+          experienceTitle: 'Work Experience',
+          experienceText:
+            'Professional experience and key achievements in my career.',
           stackTitle: 'Tech Stack',
           stackText:
             'Grouped by category with a square progress outline that wraps the icon according to the skill level.',
@@ -252,8 +273,9 @@ export class Home implements OnInit {
           emptyProjects: 'No hay proyectos disponibles todavia.',
           source: 'Codigo',
           website: 'Sitio',
-          workTitle: 'My Work',
-          workText: 'Una segunda galeria para proyectos adicionales y colaboraciones.',
+          experienceTitle: 'Experiencia Laboral',
+          experienceText:
+            'Mi experiencia profesional y logros clave en mi carrera.',
           stackTitle: 'Stack Tecnologico',
           stackText:
             'Organizado por categorias con un borde progresivo cuadrado que rodea el icono segun el nivel de habilidad.',

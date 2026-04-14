@@ -187,25 +187,31 @@
       </div>
     </section>
 
-    <section id="trabajos" class="content-section" *ngIf="trabajosAdicionales.length > 0">
+    <section id="experience" class="content-section" *ngIf="workExperience.length > 0">
       <div class="section-heading">
         <div>
-          <h3>{{ t.workTitle }}</h3>
-          <p>{{ t.workText }}</p>
+          <h3>{{ t.experienceTitle }}</h3>
+          <p>{{ t.experienceText }}</p>
         </div>
       </div>
 
-      <div class="work-grid">
-        <article class="work-card" *ngFor="let proyecto of trabajosAdicionales">
-          <a [routerLink]="['/proyecto', proyecto.id]">
-            <div class="work-card__media" *ngIf="proyecto.imagenUrl">
-              <img [src]="proyecto.imagenUrl" [alt]="proyecto.titulo" />
+      <div class="experience-list">
+        <article class="experience-card" *ngFor="let exp of workExperience">
+          <div class="experience-header">
+            <div>
+              <h4>{{ exp.company }}</h4>
+              <p class="experience-role">{{ currentLanguage === 'en' ? exp.roleEn : exp.roleEs }}</p>
             </div>
-            <div class="work-card__body">
-              <h4>{{ proyecto.titulo }}</h4>
-              <p>{{ proyecto.descripcion }}</p>
-            </div>
-          </a>
+            <span class="experience-period">{{ currentLanguage === 'en' ? exp.periodEn : exp.periodEs }}</span>
+          </div>
+          
+          <p class="experience-description">
+            {{ currentLanguage === 'en' ? exp.descriptionEn : exp.descriptionEs }}
+          </p>
+          
+          <div class="experience-technologies" *ngIf="exp.technologies.length > 0">
+            <span class="tech-tag" *ngFor="let tech of exp.technologies">{{ tech }}</span>
+          </div>
         </article>
       </div>
     </section>

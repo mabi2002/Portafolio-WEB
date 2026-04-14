@@ -537,6 +537,64 @@
   padding: 1rem 1.1rem 1.2rem;
 }
 
+// Experience Section
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.experience-card {
+  padding: 1.5rem;
+  background: oklch(0.20 0.015 250 / 0.30);
+  border-radius: 12px;
+  transition: transform 180ms ease;
+
+  &:hover {
+    transform: translateX(4px);
+  }
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.8rem;
+  gap: 1rem;
+
+  h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+  }
+}
+
+.experience-role {
+  margin: 0.2rem 0 0 0;
+  font-size: 0.95rem;
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+.experience-period {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+.experience-description {
+  margin: 0.5rem 0 1rem 0;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.experience-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
 .stack-groups,
 .education-list {
   display: grid;
