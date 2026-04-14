@@ -26,7 +26,7 @@
     "description": "Academic training and specialized courses"
   },
   "projects": {
-    "title": "Featured Projects",
+    "title": "My Projects",
     "empty": "No projects available",
     "github": "GitHub",
     "demo": "Demo",

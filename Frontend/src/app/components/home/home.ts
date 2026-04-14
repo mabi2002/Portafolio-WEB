@@ -6,6 +6,8 @@ import { Proyecto } from '../../models/proyecto.model';
 import { Perfil } from '../../models/perfil.model';
 import { PerfilService } from '../../services/perfil.service';
 import { LanguageService } from '../../services/language.service';
+import { WorkExperienceService } from '../../services/work-experience.service';
+import { WorkExperience } from '../../models/work-experience.model';
 import { Navbar } from '../navbar/navbar';
 import { Footer } from '../footer/footer';
 
@@ -29,17 +31,6 @@ interface EducationItem {
   schoolEn: string;
   textEs: string;
   textEn: string;
-}
-
-interface WorkExperience {
-  company: string;
-  roleEs: string;
-  roleEn: string;
-  periodEs: string;
-  periodEn: string;
-  descriptionEs: string;
-  descriptionEn: string;
-  technologies: string[];
 }
 
 @Component({
@@ -122,23 +113,13 @@ export class Home implements OnInit {
     },
   ];
 
-  readonly workExperience: WorkExperience[] = [
-    {
-      company: 'Tu Empresa (Agregar aquí)',
-      roleEs: 'Rol/Posición',
-      roleEn: 'Role/Position',
-      periodEs: 'Mes Año - Mes Año',
-      periodEn: 'Month Year - Month Year',
-      descriptionEs: 'Descripción de tus responsabilidades y logros en esta empresa.',
-      descriptionEn: 'Description of your responsibilities and achievements at this company.',
-      technologies: ['Angular', 'TypeScript', 'Node.js'],
-    },
-  ];
+  workExperience: WorkExperience[] = [];
 
   constructor(
     private proyectoService: ProyectoService,
     private perfilService: PerfilService,
     private languageService: LanguageService,
+    private workExperienceService: WorkExperienceService,
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -150,6 +131,7 @@ export class Home implements OnInit {
     });
     this.cargarPerfil();
     this.cargarProyectos();
+    this.cargarWorkExperience();
   }
 
   cargarProyectos() {
@@ -177,6 +159,19 @@ export class Home implements OnInit {
       error: (err) => {
         console.error('Error al cargar perfil:', err);
         this.cargandoPerfil = false;
+        this.cdr.detectChanges();
+      }
+    });
+  }
+
+  cargarWorkExperience() {
+    this.workExperienceService.getAllWorkExperience().subscribe({
+      next: (data) => {
+        this.workExperience = data;
+        this.cdr.detectChanges();
+      },
+      error: (err) => {
+        console.error('Error al cargar experiencia laboral:', err);
         this.cdr.detectChanges();
       }
     });
@@ -216,16 +211,16 @@ export class Home implements OnInit {
       ? {
           availability: 'Online',
           profileEyebrow: 'Portfolio',
-          fallbackRole: 'Full Stack Developer',
+          fallbackRole: 'Developer | Data Analyst | Automation',
           fallbackBio:
-            'I build clean interfaces, stable backend systems, and modern web experiences with an elegant visual language.',
+            'I am meticulous and committed to doing things well. When I engage in a project, I like to understand it thoroughly, research, and care for every step to ensure results that make me feel satisfied.',
           viewProfile: 'Profile',
           contact: 'Contact',
-          heroEyebrow: 'Selected Work',
-          heroTitle: 'Design',
-          heroTitleAccent: '& Code',
+          heroEyebrow: '',
+          heroTitle: 'Analyst',
+          heroTitleAccent: 'and Developer',
           heroText:
-            'A curated selection of projects focused on clean UI, performance, and a polished dark aesthetic inspired by your reference.',
+            'Explore a selection of my work where systems engineering meets data science. I develop scalable platforms and design data architectures that optimize workflows, automate processes, and visualize critical KPIs in real-time.',
           heroPrimary: 'View projects',
           heroSecondary: 'Explore stack',
           projectsTitle: 'My Projects',
@@ -253,16 +248,16 @@ export class Home implements OnInit {
       : {
           availability: 'Disponible',
           profileEyebrow: 'Portfolio',
-          fallbackRole: 'Desarrollador Full Stack',
+          fallbackRole: 'Desarrollador | Analista de Datos | Automatizacion',
           fallbackBio:
-            'Construyo interfaces limpias, backend estable y experiencias web modernas con una estetica sobria y profesional.',
+            'Soy alguien meticuloso y comprometido con realizar las cosas bien. Cuando me involucro en un proyecto, me gusta entenderlo a fondo, investigar y cuidar cada paso para asegurar resultados que me hagan sentir satisfecho.',
           viewProfile: 'Perfil',
           contact: 'Contacto',
-          heroEyebrow: 'Selected Work',
-          heroTitle: 'Diseno',
-          heroTitleAccent: '& Codigo',
+          heroEyebrow: '',
+          heroTitle: 'Analista',
+          heroTitleAccent: 'y Developer',
           heroText:
-            'Una seleccion de proyectos con enfoque en UI limpia, performance y una presencia visual oscura inspirada en la referencia que compartiste.',
+            'Explora una selección de mis trabajos donde la ingeniería de sistemas se encuentra con la ciencia de datos. Desarrollo plataformas escalables y diseño arquitecturas de datos que permiten optimizar flujos de trabajo, automatizar procesos y visualizar KPIs críticos en tiempo real.',
           heroPrimary: 'Ver proyectos',
           heroSecondary: 'Ver stack',
           projectsTitle: 'My Projects',

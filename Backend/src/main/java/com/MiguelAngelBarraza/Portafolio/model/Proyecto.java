@@ -22,8 +22,14 @@ public class Proyecto {
     @Column(nullable = false)
     private String titulo;
 
+    @Column(name = "titulo_en")
+    private String tituloEn;
+
     @Column(columnDefinition = "TEXT")
     private String descripcion;
+
+    @Column(name = "descripcion_en", columnDefinition = "TEXT")
+    private String descripcionEn;
 
     @Column(columnDefinition = "TEXT")
     private String tecnologias;
