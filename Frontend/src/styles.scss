@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap');
 
 /* ==================== CSS CUSTOM PROPERTIES & VARIABLES ==================== */
 
@@ -95,9 +95,9 @@
   --spacing-2xl: 3rem;
   --spacing-3xl: 4rem;
 
-  --font-family-base: 'Poppins', 'Segoe UI', 'Helvetica Neue', sans-serif;
-  --font-family-display: 'Playfair Display', 'Segoe UI', 'Helvetica Neue', sans-serif;
-  --font-family-accent: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-family-base: 'Inter', 'Segoe UI', 'Helvetica Neue', sans-serif;
+  --font-family-display: 'Merriweather', Georgia, 'Times New Roman', serif;
+  --font-family-accent: 'Merriweather', 'Times New Roman', serif;
   --font-family-mono: 'Courier New', monospace;
 
   --font-size-xs: 0.75rem;
