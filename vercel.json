@@ -1,7 +1,6 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist/frontend/browser",
-  "rootDirectory": "Frontend",
+  "buildCommand": "cd Frontend && npm run build",
+  "outputDirectory": "Frontend/dist/frontend/browser",
   "rewrites": [
     {
       "source": "/(.*)",
