@@ -8,6 +8,8 @@ import { PerfilService } from '../../services/perfil.service';
 import { LanguageService } from '../../services/language.service';
 import { WorkExperienceService } from '../../services/work-experience.service';
 import { WorkExperience } from '../../models/work-experience.model';
+import { EducationService } from '../../services/education.service';
+import { Education } from '../../models/education.model';
 import { Navbar } from '../navbar/navbar';
 import { Footer } from '../footer/footer';
 
@@ -21,16 +23,6 @@ interface TechItem {
 interface TechCategory {
   key: string;
   items: TechItem[];
-}
-
-interface EducationItem {
-  year: string;
-  titleEs: string;
-  titleEn: string;
-  schoolEs: string;
-  schoolEn: string;
-  textEs: string;
-  textEn: string;
 }
 
 @Component({
@@ -92,26 +84,8 @@ export class Home implements OnInit {
       ],
     }
   ];
-  readonly educationItems: EducationItem[] = [
-    {
-      year: '2022 - 2026',
-      titleEs: 'Ingenieria en Sistemas',
-      titleEn: 'Systems Engineering',
-      schoolEs: 'Formacion universitaria',
-      schoolEn: 'University studies',
-      textEs: 'Base solida en desarrollo web, estructura de software, bases de datos y resolucion de problemas.',
-      textEn: 'Strong foundation in web development, software structure, databases, and problem solving.',
-    },
-    {
-      year: '2024 - Actualidad',
-      titleEs: 'Especializacion Full Stack',
-      titleEn: 'Full Stack Specialization',
-      schoolEs: 'Aprendizaje autonomo y proyectos reales',
-      schoolEn: 'Self-directed learning and real projects',
-      textEs: 'Profundizacion en Angular, Node.js, APIs REST, interfaces elegantes y despliegue de proyectos.',
-      textEn: 'Deep dive into Angular, Node.js, REST APIs, elegant interfaces, and project deployment.',
-    },
-  ];
+
+  educationItems: Education[] = [];
 
   workExperience: WorkExperience[] = [];
 
@@ -120,6 +94,7 @@ export class Home implements OnInit {
     private perfilService: PerfilService,
     private languageService: LanguageService,
     private workExperienceService: WorkExperienceService,
+    private educationService: EducationService,
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -132,6 +107,7 @@ export class Home implements OnInit {
     this.cargarPerfil();
     this.cargarProyectos();
     this.cargarWorkExperience();
+    this.cargarEducacion();
   }
 
   cargarProyectos() {
@@ -172,6 +148,19 @@ export class Home implements OnInit {
       },
       error: (err) => {
         console.error('Error al cargar experiencia laboral:', err);
+        this.cdr.detectChanges();
+      }
+    });
+  }
+
+  cargarEducacion() {
+    this.educationService.getAllEducation().subscribe({
+      next: (data) => {
+        this.educationItems = data;
+        this.cdr.detectChanges();
+      },
+      error: (err) => {
+        console.error('Error al cargar educacion:', err);
         this.cdr.detectChanges();
       }
     });
