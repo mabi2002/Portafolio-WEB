@@ -38,8 +38,7 @@ public class SecurityConfig {
             .logout(logout -> logout.permitAll())
             .csrf(csrf -> csrf
                 .disable() // Deshabilitar CSRF para APIs
-            )
-            .cors(cors -> cors.disable()); // Ya configurado en CorsConfig
+            );
 
         return http.build();
     }
