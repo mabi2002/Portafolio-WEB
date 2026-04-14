@@ -43,7 +43,7 @@
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: linear-gradient(180deg, rgba(79, 195, 221, 0.06), transparent 26%);
+    background: linear-gradient(180deg, rgba(74, 184, 217, 0.08), transparent 26%);
     pointer-events: none;
   }
 }
@@ -479,7 +479,7 @@
   place-items: center;
   color: var(--text-secondary);
   background:
-    radial-gradient(circle at top, rgba(79, 195, 221, 0.12), transparent 45%),
+    radial-gradient(circle at top, rgba(74, 184, 217, 0.12), transparent 45%),
     linear-gradient(135deg, var(--surface-1), var(--surface-0));
 }
 
@@ -558,7 +558,7 @@
   padding: 1rem;
   border: 1px solid var(--card-border);
   background:
-    linear-gradient(180deg, rgba(79, 195, 221, 0.08), transparent 45%),
+    linear-gradient(180deg, rgba(74, 184, 217, 0.08), transparent 45%),
     var(--chip-bg);
 }
 

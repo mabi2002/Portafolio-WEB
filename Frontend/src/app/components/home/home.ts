@@ -65,28 +65,28 @@ export class Home implements OnInit {
     {
       key: 'frontend',
       items: [
-        { name: 'Angular', icon: 'fab fa-angular', level: 92, color: '#4fc3dd' },
-        { name: 'TypeScript', icon: 'fab fa-js', level: 89, color: '#4fc3dd' },
-        { name: 'SCSS', icon: 'fab fa-sass', level: 84, color: '#4fc3dd' },
-        { name: 'HTML', icon: 'fab fa-html5', level: 95, color: '#4fc3dd' },
+        { name: 'Angular', icon: 'fab fa-angular', level: 92, color: '#4ab8d9' },
+        { name: 'TypeScript', icon: 'fab fa-js', level: 89, color: '#4ab8d9' },
+        { name: 'SCSS', icon: 'fab fa-sass', level: 84, color: '#4ab8d9' },
+        { name: 'HTML', icon: 'fab fa-html5', level: 95, color: '#4ab8d9' },
       ],
     },
     {
       key: 'backend',
       items: [
-        { name: 'Node.js', icon: 'fab fa-node-js', level: 86, color: '#4fc3dd' },
-        { name: 'Express', icon: 'fas fa-cube', level: 81, color: '#4fc3dd' },
-        { name: 'REST API', icon: 'fas fa-code', level: 90, color: '#4fc3dd' },
-        { name: 'MongoDB', icon: 'fas fa-leaf', level: 78, color: '#4fc3dd' },
+        { name: 'Node.js', icon: 'fab fa-node-js', level: 86, color: '#4ab8d9' },
+        { name: 'Express', icon: 'fas fa-cube', level: 81, color: '#4ab8d9' },
+        { name: 'REST API', icon: 'fas fa-code', level: 90, color: '#4ab8d9' },
+        { name: 'MongoDB', icon: 'fas fa-leaf', level: 78, color: '#4ab8d9' },
       ],
     },
     {
       key: 'tools',
       items: [
-        { name: 'Git', icon: 'fab fa-git-alt', level: 88, color: '#4fc3dd' },
-        { name: 'Vite', icon: 'fas fa-zap', level: 74, color: '#4fc3dd' },
-        { name: 'Figma', icon: 'fab fa-figma', level: 67, color: '#4fc3dd' },
-        { name: 'Postman', icon: 'fas fa-envelope', level: 79, color: '#4fc3dd' },
+        { name: 'Git', icon: 'fab fa-git-alt', level: 88, color: '#4ab8d9' },
+        { name: 'Vite', icon: 'fas fa-zap', level: 74, color: '#4ab8d9' },
+        { name: 'Figma', icon: 'fab fa-figma', level: 67, color: '#4ab8d9' },
+        { name: 'Postman', icon: 'fas fa-envelope', level: 79, color: '#4ab8d9' },
       ],
     }
   ];

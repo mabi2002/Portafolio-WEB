@@ -43,45 +43,45 @@
 }
 
 :root[data-theme="dark"] {
-  --primary-color: #f3f4f6;
+  --primary-color: #f2f3f5;
   --secondary-color: #9ca3af;
-  --accent-color: #4fc3dd;
-  --success-color: #1dd1a1;
+  --accent-color: #4ab8d9;
+  --success-color: #22c55e;
 
-  --bg-primary: #0f1419;
-  --bg-secondary: #12171f;
-  --bg-tertiary: #1a2135;
+  --bg-primary: #1a1f2e;
+  --bg-secondary: #21252f;
+  --bg-tertiary: #2a2e3a;
 
-  --text-primary: #f3f4f6;
-  --text-secondary: #c4cbd8;
+  --text-primary: #f2f3f5;
+  --text-secondary: #bcc3d0;
   --text-tertiary: #8b94a8;
 
-  --border-color: rgba(255, 255, 255, 0.06);
-  --border-light: rgba(255, 255, 255, 0.03);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-light: rgba(255, 255, 255, 0.04);
 
-  --surface-0: #0f1419;
-  --surface-1: #16202d;
-  --inner-surface: linear-gradient(180deg, rgba(79, 195, 221, 0.08), rgba(79, 195, 221, 0.04));
-  --nav-surface: linear-gradient(180deg, rgba(15, 20, 25, 0.8), rgba(15, 20, 25, 0.5));
-  --nav-border: rgba(79, 195, 221, 0.12);
-  --card-gradient: linear-gradient(180deg, rgba(22, 32, 45, 0.6), rgba(15, 20, 25, 0.4));
+  --surface-0: #1a1f2e;
+  --surface-1: #21252f;
+  --inner-surface: linear-gradient(180deg, rgba(74, 184, 217, 0.08), rgba(74, 184, 217, 0.04));
+  --nav-surface: linear-gradient(180deg, rgba(26, 31, 46, 0.82), rgba(26, 31, 46, 0.5));
+  --nav-border: rgba(74, 184, 217, 0.14);
+  --card-gradient: linear-gradient(180deg, rgba(33, 37, 47, 0.65), rgba(26, 31, 46, 0.45));
   --hero-gradient:
-    radial-gradient(circle at 18% 14%, rgba(79, 195, 221, 0.18), transparent 28%),
+    radial-gradient(circle at 18% 14%, rgba(74, 184, 217, 0.16), transparent 28%),
     radial-gradient(circle at 85% 8%, rgba(255, 255, 255, 0.03), transparent 24%),
-    linear-gradient(180deg, rgba(15, 20, 25, 0.88), rgba(12, 16, 28, 0.72));
-  --card-border: rgba(79, 195, 221, 0.12);
-  --card-border-strong: rgba(79, 195, 221, 0.24);
-  --chip-bg: rgba(79, 195, 221, 0.06);
-  --chip-border: rgba(79, 195, 221, 0.18);
-  --panel-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
-  --grid-line: rgba(79, 195, 221, 0.08);
+    linear-gradient(180deg, rgba(26, 31, 46, 0.9), rgba(21, 25, 37, 0.76));
+  --card-border: rgba(74, 184, 217, 0.14);
+  --card-border-strong: rgba(74, 184, 217, 0.26);
+  --chip-bg: rgba(74, 184, 217, 0.08);
+  --chip-border: rgba(74, 184, 217, 0.20);
+  --panel-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+  --grid-line: rgba(74, 184, 217, 0.10);
   --muted-strong: #9ca3af;
-  --progress-track: rgba(79, 195, 221, 0.12);
+  --progress-track: rgba(74, 184, 217, 0.14);
 
-  --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 18px 50px rgba(0, 0, 0, 0.4);
-  --shadow-xl: 0 28px 90px rgba(0, 0, 0, 0.48);
+  --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.22);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.32);
+  --shadow-lg: 0 18px 50px rgba(0, 0, 0, 0.42);
+  --shadow-xl: 0 28px 90px rgba(0, 0, 0, 0.52);
 }
 
 :root {
