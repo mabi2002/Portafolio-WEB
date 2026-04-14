@@ -1,7 +1,4 @@
 {
-  "buildCommand": "cd Frontend && npx ng build --c production",
-  "outputDirectory": "Frontend/dist/frontend/browser",
-  "env": {
-    "SKIP_ENV_VALIDATION": "true"
-  }
+  "buildCommand": "cd Frontend && npm run build",
+  "outputDirectory": "Frontend/dist/frontend/browser"
 }
