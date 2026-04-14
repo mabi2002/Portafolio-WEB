@@ -55,8 +55,8 @@ export class Home implements OnInit {
   cargando = true;
   cargandoPerfil = true;
   currentLanguage = 'es';
-  stackExpanded = false;
-  contactExpanded = false;
+  stackExpanded = true;
+  contactExpanded = true;
   readonly stack = [
     'Angular',
     'TypeScript',
