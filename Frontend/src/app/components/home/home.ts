@@ -13,6 +13,7 @@ interface TechItem {
   name: string;
   icon: string;
   level: number;
+  color?: string;
 }
 
 interface TechCategory {
@@ -64,28 +65,28 @@ export class Home implements OnInit {
     {
       key: 'frontend',
       items: [
-        { name: 'Angular', icon: 'https://api.iconify.design/simple-icons:angular.svg', level: 92 },
-        { name: 'TypeScript', icon: 'https://api.iconify.design/simple-icons:typescript.svg', level: 89 },
-        { name: 'SCSS', icon: 'https://api.iconify.design/simple-icons:sass.svg', level: 84 },
-        { name: 'HTML', icon: 'https://api.iconify.design/simple-icons:html5.svg', level: 95 },
+        { name: 'Angular', icon: 'fab fa-angular', level: 92, color: '#DD0031' },
+        { name: 'TypeScript', icon: 'fab fa-js', level: 89, color: '#3178C6' },
+        { name: 'SCSS', icon: 'fab fa-sass', level: 84, color: '#C6538C' },
+        { name: 'HTML', icon: 'fab fa-html5', level: 95, color: '#E34C26' },
       ],
     },
     {
       key: 'backend',
       items: [
-        { name: 'Node.js', icon: 'https://api.iconify.design/simple-icons:nodedotjs.svg', level: 86 },
-        { name: 'Express', icon: 'https://api.iconify.design/simple-icons:express.svg', level: 81 },
-        { name: 'REST API', icon: 'https://api.iconify.design/simple-icons:json.svg', level: 90 },
-        { name: 'MongoDB', icon: 'https://api.iconify.design/simple-icons:mongodb.svg', level: 78 },
+        { name: 'Node.js', icon: 'fab fa-node-js', level: 86, color: '#339933' },
+        { name: 'Express', icon: 'fas fa-cube', level: 81, color: '#000000' },
+        { name: 'REST API', icon: 'fas fa-code', level: 90, color: '#FF6C37' },
+        { name: 'MongoDB', icon: 'fas fa-leaf', level: 78, color: '#47A248' },
       ],
     },
     {
       key: 'tools',
       items: [
-        { name: 'Git', icon: 'https://api.iconify.design/simple-icons:git.svg', level: 88 },
-        { name: 'Vite', icon: 'https://api.iconify.design/simple-icons:vite.svg', level: 74 },
-        { name: 'Figma', icon: 'https://api.iconify.design/simple-icons:figma.svg', level: 67 },
-        { name: 'Postman', icon: 'https://api.iconify.design/simple-icons:postman.svg', level: 79 },
+        { name: 'Git', icon: 'fab fa-git-alt', level: 88, color: '#F1502F' },
+        { name: 'Vite', icon: 'fas fa-zap', level: 74, color: '#646CFF' },
+        { name: 'Figma', icon: 'fab fa-figma', level: 67, color: '#F24E1E' },
+        { name: 'Postman', icon: 'fas fa-envelope', level: 79, color: '#FF6C37' },
       ],
     }
   ];
