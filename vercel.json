@@ -1,4 +1,3 @@
 {
-  "buildCommand": "cd Frontend && npm run build",
   "outputDirectory": "Frontend/dist/frontend/browser"
 }
