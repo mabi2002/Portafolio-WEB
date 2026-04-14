@@ -14,7 +14,21 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(authz -> authz
-                .requestMatchers("/", "/about", "/proyecto/**", "/css/**", "/js/**", "/images/**", "/login", "/api/**", "/health", "/db-connection-test").permitAll()
+                // Permitir acceso público a rutas estáticas, API y health check
+                .requestMatchers(
+                    "/",
+                    "/about",
+                    "/proyecto/**",
+                    "/css/**",
+                    "/js/**",
+                    "/images/**",
+                    "/assets/**",
+                    "/api/**",
+                    "/health",
+                    "/db-connection-test",
+                    "/login",
+                    "/error"
+                ).permitAll()
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form
@@ -23,13 +37,12 @@ public class SecurityConfig {
             )
             .logout(logout -> logout.permitAll())
             .csrf(csrf -> csrf
-                .ignoringRequestMatchers("/api/**", "/login")
+                .disable() // Deshabilitar CSRF para APIs
             )
-            .sessionManagement(session -> session
-                .sessionFixationProtection(org.springframework.security.config.Customizer.withDefaults())
-            );
+            .cors(cors -> cors.disable()); // Ya configurado en CorsConfig
 
         return http.build();
     }
+}
 }
 
