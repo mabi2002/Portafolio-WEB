@@ -242,7 +242,7 @@
                     [attr.stroke-dasharray]="tech.level + ' 100'"
                   ></rect>
                 </svg>
-                <div class="tech-card__icon">{{ tech.icon }}</div>
+                <img class="tech-card__icon" [src]="tech.icon" [alt]="tech.name" />
               </div>
 
               <div class="tech-card__body">
