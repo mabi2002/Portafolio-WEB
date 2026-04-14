@@ -2,7 +2,9 @@ export interface Perfil {
   id: number;
   nombre: string;
   titulo: string;
+  tituloEn?: string;
   bio: string;
+  bioEn?: string;
   email: string;
   telefono?: string;
   cvUrl?: string;

@@ -26,7 +26,7 @@
     "description": "Formación académica y cursos especializados"
   },
   "projects": {
-    "title": "Proyectos Destacados",
+    "title": "Mis Proyectos",
     "empty": "No hay proyectos disponibles",
     "github": "GitHub",
     "demo": "Demo",

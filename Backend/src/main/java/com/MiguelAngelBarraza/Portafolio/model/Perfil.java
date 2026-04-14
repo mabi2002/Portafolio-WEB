@@ -24,8 +24,14 @@ public class Perfil {
     @Column(nullable = false)
     private String titulo;
 
+    @Column(name = "titulo_en")
+    private String tituloEn;
+
     @Column(columnDefinition = "TEXT")
     private String bio;
+
+    @Column(name = "bio_en", columnDefinition = "TEXT")
+    private String bioEn;
 
     @Column
     private String email;

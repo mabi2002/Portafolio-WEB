@@ -14,9 +14,7 @@
 
     <div class="topbar__actions">
       <button class="toggle toggle--theme" type="button" (click)="toggleTheme()" [attr.aria-label]="darkMode ? 'Activar modo claro' : 'Activar modo oscuro'">
-        <span class="toggle__track" [class.is-dark]="darkMode">
-          <span class="toggle__thumb"></span>
-        </span>
+        <i class="fa-solid" [ngClass]="darkMode ? 'fa-sun' : 'fa-moon'"></i>
       </button>
 
       <button class="lang-pill" type="button" (click)="toggleLanguage()">
