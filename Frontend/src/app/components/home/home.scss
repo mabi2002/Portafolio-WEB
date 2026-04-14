@@ -18,10 +18,10 @@
 
 .profile-card,
 .state-card {
-  border: 1px solid var(--card-border);
-  background: var(--card-gradient);
-  box-shadow: var(--panel-shadow);
-  backdrop-filter: blur(16px);
+  border: none;
+  background: var(--bg-primary);
+  box-shadow: none;
+  backdrop-filter: none;
 }
 
 .content-section {
@@ -42,13 +42,17 @@
   position: sticky;
   top: 84px;
   height: calc(100vh - 112px);
+  border: none;
+  background: var(--bg-primary);
+  box-shadow: none;
+  backdrop-filter: none;
 
   &::after {
     content: '';
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: linear-gradient(180deg, oklch(0.72 0.12 185 / 0.08), transparent 26%);
+    background: none;
     pointer-events: none;
   }
 }
@@ -276,18 +280,18 @@
   justify-content: space-between;
   gap: 4rem;
   min-height: calc(100vh - 112px);
-  border: 1px solid var(--card-border);
-  background: var(--hero-gradient);
-  box-shadow: var(--panel-shadow);
+  border: none;
+  background: var(--bg-primary);
+  box-shadow: none;
   position: relative;
 
   &::before {
     content: '';
     position: absolute;
     inset: 0;
-    background-image:
-      linear-gradient(var(--grid-line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-image: none;
+    pointer-events: none;
+  }
     background-size: 24px 24px;
     mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 100%);
     pointer-events: none;
@@ -297,7 +301,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, oklch(0.72 0.12 185 / 0.08), transparent 38%);
+    background: none;
     pointer-events: none;
   }
 
@@ -485,8 +489,8 @@
   place-items: center;
   color: var(--text-secondary);
   background:
-    radial-gradient(circle at top, oklch(0.72 0.12 185 / 0.12), transparent 45%),
-    linear-gradient(135deg, var(--surface-1), var(--surface-0));
+    radial-gradient(circle at top, oklch(0.25 0.015 250 / 0.10), transparent 45%),
+    linear-gradient(135deg, var(--bg-primary), var(--bg-primary));
 }
 
 .project-content {
@@ -564,7 +568,7 @@
   padding: 1rem;
   border: 1px solid var(--card-border);
   background:
-    linear-gradient(180deg, oklch(0.72 0.12 185 / 0.08), transparent 45%),
+    linear-gradient(180deg, oklch(0.25 0.015 250 / 0.08), transparent 45%),
     var(--chip-bg);
 }
 
@@ -789,12 +793,11 @@
   transform: translate(-50%, -50%);
   border-radius: 50%;
   
-  // Multi-layer glow effect
   background: radial-gradient(
     circle at 30% 30%,
-    oklch(0.72 0.12 185 / 0.20) 0%,
-    oklch(0.72 0.12 185 / 0.05) 30%,
-    oklch(0.13 0.015 250 / 0.5) 70%,
+    oklch(0.25 0.015 250 / 0.10) 0%,
+    oklch(0.13 0.015 250) 30%,
+    oklch(0.13 0.015 250) 70%,
     transparent 100%
   );
   
@@ -837,8 +840,8 @@
   
   background: radial-gradient(
     circle at 35% 35%,
-    oklch(0.72 0.12 185 / 0.70),
-    oklch(0.72 0.12 185 / 0.35)
+    oklch(0.25 0.015 250 / 0.15),
+    oklch(0.13 0.015 250)
   );
   
   border: 3px solid oklch(0.72 0.12 185 / 0.80);

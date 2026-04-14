@@ -51,35 +51,34 @@
   --accent-color: oklch(0.72 0.12 185);
   --success-color: oklch(0.72 0.12 185);
 
+  /* Unified dark background - very minimal color shift */
   --bg-primary: oklch(0.13 0.015 250);
-  --bg-secondary: oklch(0.16 0.015 250);
-  --bg-tertiary: oklch(0.20 0.015 250);
+  --bg-secondary: oklch(0.13 0.015 250);
+  --bg-tertiary: oklch(0.13 0.015 250);
 
   --text-primary: oklch(0.95 0.01 250);
   --text-secondary: oklch(0.85 0.01 250);
   --text-tertiary: oklch(0.60 0.02 250);
 
-  --border-color: oklch(0.72 0.12 185 / 0.25);
-  --border-light: oklch(0.72 0.12 185 / 0.12);
+  /* Subtle borders - barely visible */
+  --border-color: oklch(0.25 0.015 250 / 0.15);
+  --border-light: oklch(0.25 0.015 250 / 0.08);
 
   --surface-0: oklch(0.13 0.015 250);
-  --surface-1: oklch(0.16 0.015 250);
-  --inner-surface: linear-gradient(180deg, oklch(0.72 0.12 185 / 0.12), oklch(0.72 0.12 185 / 0.06));
-  --nav-surface: linear-gradient(180deg, oklch(0.13 0.015 250 / 0.82), oklch(0.13 0.015 250 / 0.5));
-  --nav-border: oklch(0.72 0.12 185 / 0.20);
-  --card-gradient: linear-gradient(180deg, oklch(0.16 0.015 250), oklch(0.13 0.015 250));
-  --hero-gradient:
-    radial-gradient(circle at 18% 14%, oklch(0.72 0.12 185 / 0.20), transparent 28%),
-    radial-gradient(circle at 85% 8%, oklch(0.72 0.12 185 / 0.08), transparent 24%),
-    linear-gradient(180deg, oklch(0.13 0.015 250), oklch(0.13 0.015 250));
-  --card-border: oklch(0.72 0.12 185 / 0.20);
-  --card-border-strong: oklch(0.72 0.12 185 / 0.35);
-  --chip-bg: oklch(0.72 0.12 185 / 0.12);
-  --chip-border: oklch(0.72 0.12 185 / 0.25);
-  --panel-shadow: 0 24px 80px oklch(0 0 0 / 0.40);
-  --grid-line: oklch(0.72 0.12 185 / 0.15);
+  --surface-1: oklch(0.13 0.015 250);
+  --inner-surface: oklch(0.13 0.015 250);
+  --nav-surface: oklch(0.13 0.015 250);
+  --nav-border: oklch(0.25 0.015 250 / 0.15);
+  --card-gradient: oklch(0.13 0.015 250);
+  --hero-gradient: oklch(0.13 0.015 250);
+  --card-border: oklch(0.25 0.015 250 / 0.15);
+  --card-border-strong: oklch(0.25 0.015 250 / 0.20);
+  --chip-bg: oklch(0.25 0.015 250 / 0.12);
+  --chip-border: oklch(0.25 0.015 250 / 0.20);
+  --panel-shadow: 0 24px 80px oklch(0 0 0 / 0.30);
+  --grid-line: oklch(0.25 0.015 250 / 0.10);
   --muted-strong: oklch(0.60 0.02 250);
-  --progress-track: oklch(0.72 0.12 185 / 0.20);
+  --progress-track: oklch(0.25 0.015 250 / 0.20);
 
   --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.22);
   --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.32);
