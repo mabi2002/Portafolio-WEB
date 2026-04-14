@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { WorkExperience } from '../models/work-experience.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class WorkExperienceService {
-  private apiUrl = '/api/work-experience';
+  private apiUrl = `${environment.apiUrl}/api/work-experience`;
 
   constructor(private http: HttpClient) {}
 
