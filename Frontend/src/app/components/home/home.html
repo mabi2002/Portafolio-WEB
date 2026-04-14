@@ -46,15 +46,14 @@
           </button>
         </div>
         <div class="social-list" *ngIf="contactExpanded">
-          <a
-            *ngFor="let social of socialLinks"
-            [href]="socialHref(social.key) || '#'"
-            [class.disabled]="!socialHref(social.key)"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span>{{ social.short }}</span>
-            {{ social.label }}
+          <a href="https://github.com/mabi2002" target="_blank" rel="noreferrer" class="social-link">
+            <img src="https://simpleicons.org/icons/github.svg" alt="GitHub" />
+          </a>
+          <a href="https://linkedin.com/in/miguelbarraza" target="_blank" rel="noreferrer" class="social-link">
+            <img src="https://simpleicons.org/icons/linkedin.svg" alt="LinkedIn" />
+          </a>
+          <a href="mailto:info@migueldev.com" class="social-link">
+            <img src="https://simpleicons.org/icons/gmail.svg" alt="Email" />
           </a>
         </div>
       </div>

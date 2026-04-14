@@ -221,28 +221,28 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.5rem;
 
-  a {
-    display: grid;
-    justify-items: center;
+  a, .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    gap: 0.35rem;
     color: var(--text-primary);
-    padding: 0.6rem 0.35rem;
+    padding: 0.6rem;
     border-radius: 14px;
     border: 1px solid var(--chip-border);
     background: var(--chip-bg);
-    font-size: 0.68rem;
+    text-decoration: none;
+    transition: all 180ms ease;
 
-    span {
+    img {
       width: 28px;
       height: 28px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: var(--text-primary);
-      color: var(--surface-0);
-      font-size: 0.64rem;
-      font-weight: 800;
+      object-fit: contain;
+    }
+
+    &:hover {
+      border-color: var(--card-border-strong);
+      background: rgba(255, 255, 255, 0.05);
     }
 
     &.disabled {
