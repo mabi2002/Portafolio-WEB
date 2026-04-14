@@ -43,7 +43,8 @@ public class HealthCheckController {
 			Class.forName("org.postgresql.Driver");
 			try (Connection conn = DriverManager.getConnection(datasourceUrl, username, password)) {
 				response.put("connection_status", "SUCCESS");
-				response.put("database_version", conn.getMetaData().getDatabaseVersion());
+				response.put("database_product", conn.getMetaData().getDatabaseProductName());
+				response.put("database_product_version", conn.getMetaData().getDatabaseProductVersion());
 				response.put("jdbc_url", conn.getMetaData().getURL());
 			} catch (Exception connEx) {
 				response.put("connection_status", "FAILED");
