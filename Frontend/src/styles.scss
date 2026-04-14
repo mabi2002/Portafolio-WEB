@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+
 /* ==================== CSS CUSTOM PROPERTIES & VARIABLES ==================== */
 
 :root[data-theme="light"] {
@@ -94,9 +96,9 @@
   --spacing-2xl: 3rem;
   --spacing-3xl: 4rem;
 
-  --font-family-base: 'Segoe UI', 'Helvetica Neue', sans-serif;
-  --font-family-display: 'Segoe UI', 'Helvetica Neue', sans-serif;
-  --font-family-accent: Georgia, 'Times New Roman', serif;
+  --font-family-base: 'Poppins', 'Segoe UI', 'Helvetica Neue', sans-serif;
+  --font-family-display: 'Playfair Display', 'Segoe UI', 'Helvetica Neue', sans-serif;
+  --font-family-accent: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-family-mono: 'Courier New', monospace;
 
   --font-size-xs: 0.75rem;

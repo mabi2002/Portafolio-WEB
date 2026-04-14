@@ -17,12 +17,17 @@
 }
 
 .profile-card,
-.content-section,
 .state-card {
   border: 1px solid var(--card-border);
   background: var(--card-gradient);
   box-shadow: var(--panel-shadow);
   backdrop-filter: blur(16px);
+}
+
+.content-section {
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
 }
 
 .profile-card {
@@ -400,9 +405,10 @@
 
 .content-section {
   padding: 28px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0)),
-    var(--card-gradient);
+  margin-bottom: 2rem;
+  background: transparent;
+  box-shadow: none;
+  border: none;
 }
 
 #trabajos {
