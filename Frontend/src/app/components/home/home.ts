@@ -64,30 +64,30 @@ export class Home implements OnInit {
     {
       key: 'frontend',
       items: [
-        { name: 'Angular', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/angular.svg', level: 92 },
-        { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/typescript.svg', level: 89 },
-        { name: 'SCSS', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/sass.svg', level: 84 },
-        { name: 'HTML', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/html5.svg', level: 95 },
+        { name: 'Angular', icon: 'https://api.iconify.design/simple-icons:angular.svg', level: 92 },
+        { name: 'TypeScript', icon: 'https://api.iconify.design/simple-icons:typescript.svg', level: 89 },
+        { name: 'SCSS', icon: 'https://api.iconify.design/simple-icons:sass.svg', level: 84 },
+        { name: 'HTML', icon: 'https://api.iconify.design/simple-icons:html5.svg', level: 95 },
       ],
     },
     {
       key: 'backend',
       items: [
-        { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/node-dot-js.svg', level: 86 },
-        { name: 'Express', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/express.svg', level: 81 },
-        { name: 'REST API', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/json.svg', level: 90 },
-        { name: 'MongoDB', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/mongodb.svg', level: 78 },
+        { name: 'Node.js', icon: 'https://api.iconify.design/simple-icons:nodedotjs.svg', level: 86 },
+        { name: 'Express', icon: 'https://api.iconify.design/simple-icons:express.svg', level: 81 },
+        { name: 'REST API', icon: 'https://api.iconify.design/simple-icons:json.svg', level: 90 },
+        { name: 'MongoDB', icon: 'https://api.iconify.design/simple-icons:mongodb.svg', level: 78 },
       ],
     },
     {
       key: 'tools',
       items: [
-        { name: 'Git', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/git.svg', level: 88 },
-        { name: 'Vite', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/vite.svg', level: 74 },
-        { name: 'Figma', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/figma.svg', level: 67 },
-        { name: 'Postman', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/postman.svg', level: 79 },
+        { name: 'Git', icon: 'https://api.iconify.design/simple-icons:git.svg', level: 88 },
+        { name: 'Vite', icon: 'https://api.iconify.design/simple-icons:vite.svg', level: 74 },
+        { name: 'Figma', icon: 'https://api.iconify.design/simple-icons:figma.svg', level: 67 },
+        { name: 'Postman', icon: 'https://api.iconify.design/simple-icons:postman.svg', level: 79 },
       ],
-    },
+    }
   ];
   readonly educationItems: EducationItem[] = [
     {
