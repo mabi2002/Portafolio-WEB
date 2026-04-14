@@ -1,5 +1,10 @@
 # Guía de Deployment - Portafolio Web
 
+## Status Final
+- ✅ Backend: Live en Render 
+- ⏳ Frontend: Deploying to Vercel
+- ✅ Database: Supabase PostgreSQL
+
 ## 📦 Servicios a Desplegar
 
 ### 1. Base de Datos (Supabase)
