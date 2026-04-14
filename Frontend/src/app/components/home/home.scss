@@ -116,6 +116,7 @@
 .section-heading h3 {
   margin-bottom: 0.5rem;
   color: var(--accent-color);
+  font-weight: 600;
 }
 
 .project-content h4,
@@ -124,6 +125,7 @@
 .education-card__content h4 {
   margin-bottom: 0.5rem;
   color: var(--text-primary);
+  font-weight: 500;
 }
 
 .eyebrow,
@@ -133,6 +135,7 @@
   font-size: 0.72rem;
   color: var(--muted-strong);
   margin-bottom: 0.85rem;
+  font-weight: 400;
 }
 
 .profile-copy {
@@ -147,6 +150,7 @@
 .role {
   color: var(--text-primary);
   font-size: 0.92rem;
+  font-weight: 400;
 }
 
 .bio,
@@ -157,6 +161,7 @@
 .state-card p,
 .education-card__content p {
   color: var(--text-secondary);
+  font-weight: 300;
 }
 
 .bio {
@@ -554,7 +559,8 @@
 
 .experience-card {
   padding: 1.5rem;
-  background: oklch(0.20 0.015 250 / 0.30);
+  background: transparent;
+  border: 1px solid var(--accent-color);
   border-radius: 12px;
   transition: transform 180ms ease;
 
@@ -611,6 +617,24 @@
 
 .stack-group {
   padding: 20px;
+  padding-bottom: 30px;
+  margin-bottom: 0;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: var(--accent-color);
+  }
+
+  &:last-child::after {
+    display: none;
+  }
 }
 
 .stack-group__header {
