@@ -46,7 +46,7 @@
   --primary-color: #f2f3f5;
   --secondary-color: #9ca3af;
   --accent-color: #4ab8d9;
-  --success-color: #22c55e;
+  --success-color: #4ab8d9;
 
   --bg-primary: #1a1f2e;
   --bg-secondary: #21252f;
@@ -56,27 +56,27 @@
   --text-secondary: #bcc3d0;
   --text-tertiary: #8b94a8;
 
-  --border-color: rgba(255, 255, 255, 0.08);
-  --border-light: rgba(255, 255, 255, 0.04);
+  --border-color: rgba(74, 184, 217, 0.12);
+  --border-light: rgba(74, 184, 217, 0.06);
 
   --surface-0: #1a1f2e;
   --surface-1: #21252f;
   --inner-surface: linear-gradient(180deg, rgba(74, 184, 217, 0.08), rgba(74, 184, 217, 0.04));
   --nav-surface: linear-gradient(180deg, rgba(26, 31, 46, 0.82), rgba(26, 31, 46, 0.5));
-  --nav-border: rgba(74, 184, 217, 0.14);
+  --nav-border: rgba(74, 184, 217, 0.16);
   --card-gradient: linear-gradient(180deg, rgba(33, 37, 47, 0.65), rgba(26, 31, 46, 0.45));
   --hero-gradient:
-    radial-gradient(circle at 18% 14%, rgba(74, 184, 217, 0.16), transparent 28%),
-    radial-gradient(circle at 85% 8%, rgba(255, 255, 255, 0.03), transparent 24%),
+    radial-gradient(circle at 18% 14%, rgba(74, 184, 217, 0.18), transparent 28%),
+    radial-gradient(circle at 85% 8%, rgba(74, 184, 217, 0.06), transparent 24%),
     linear-gradient(180deg, rgba(26, 31, 46, 0.9), rgba(21, 25, 37, 0.76));
-  --card-border: rgba(74, 184, 217, 0.14);
-  --card-border-strong: rgba(74, 184, 217, 0.26);
+  --card-border: rgba(74, 184, 217, 0.16);
+  --card-border-strong: rgba(74, 184, 217, 0.28);
   --chip-bg: rgba(74, 184, 217, 0.08);
   --chip-border: rgba(74, 184, 217, 0.20);
   --panel-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
   --grid-line: rgba(74, 184, 217, 0.10);
   --muted-strong: #9ca3af;
-  --progress-track: rgba(74, 184, 217, 0.14);
+  --progress-track: rgba(74, 184, 217, 0.12);
 
   --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.22);
   --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.32);
