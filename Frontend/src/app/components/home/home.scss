@@ -292,7 +292,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(51, 166, 199, 0.08), transparent 38%);
+    background: linear-gradient(135deg, rgba(74, 184, 217, 0.08), transparent 38%);
     pointer-events: none;
   }
 
@@ -786,14 +786,14 @@
   // Multi-layer glow effect
   background: radial-gradient(
     circle at 30% 30%,
-    rgba(139, 92, 246, 0.2) 0%,
-    rgba(139, 92, 246, 0.05) 30%,
+    rgba(74, 184, 217, 0.2) 0%,
+    rgba(74, 184, 217, 0.05) 30%,
     rgba(17, 24, 39, 0.5) 70%,
     transparent 100%
   );
   
   border: 2.5px solid;
-  border-color: rgba(168, 85, 247, 0.4);
+  border-color: rgba(74, 184, 217, 0.4);
   
   box-shadow: none;
   
@@ -804,7 +804,7 @@
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    border: 1px solid rgba(168, 85, 247, 0.2);
+    border: 1px solid rgba(74, 184, 217, 0.2);
     box-shadow: none;
     animation: orbRotate 25s linear infinite;
   }
@@ -814,7 +814,7 @@
     position: absolute;
     inset: 20px;
     border-radius: 50%;
-    border: 2px dashed rgba(168, 85, 247, 0.2);
+    border: 2px dashed rgba(74, 184, 217, 0.2);
     animation: orbRotateReverse 40s linear infinite;
   }
 }
