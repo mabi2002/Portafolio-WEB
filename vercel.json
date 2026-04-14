@@ -1,0 +1,4 @@
+{
+  "buildCommand": "cd Frontend && npm run build -- --configuration=production",
+  "outputDirectory": "Frontend/dist/frontend/browser"
+}
