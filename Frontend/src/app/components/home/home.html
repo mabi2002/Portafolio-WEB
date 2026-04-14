@@ -136,7 +136,6 @@
 
       <div class="projects-grid" *ngIf="!cargando && proyectosPrincipales.length > 0">
         <article class="project-card" *ngFor="let proyecto of proyectosPrincipales">
-          <a [routerLink]="['/proyecto', proyecto.id]" class="project-card-link">
             <div class="project-image-frame">
               <div class="project-image" *ngIf="proyecto.imagenUrl; else placeholderImage">
                 <img [src]="proyecto.imagenUrl" [alt]="(currentLanguage === 'en' && proyecto.tituloEn) ? proyecto.tituloEn : proyecto.titulo" />
@@ -165,7 +164,6 @@
                   class="project-link"
                   target="_blank"
                   rel="noreferrer"
-                  (click)="$event.stopPropagation()"
                 >
                   {{ t.source }}
                 </a>
@@ -175,18 +173,16 @@
                   class="project-link project-link--light"
                   target="_blank"
                   rel="noreferrer"
-                  (click)="$event.stopPropagation()"
                 >
                   {{ t.website }}
                 </a>
               </div>
             </div>
-          </a>
         </article>
       </div>
     </section>
 
-    <section id="experience" class="content-section" *ngIf="workExperience.length > 0">
+    <section id="trabajos" class="content-section" *ngIf="workExperience.length > 0">
       <div class="section-heading">
         <div>
           <h3>{{ t.experienceTitle }}</h3>

@@ -7,6 +7,6 @@ export interface WorkExperience {
   descriptionEn?: string;
   periodEs: string;
   periodEn?: string;
-  technologies: string;
+  technologies: string[];
   sortOrder?: number;
 }
