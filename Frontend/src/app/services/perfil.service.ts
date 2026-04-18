@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Perfil } from '../models/perfil.model';
 import { environment } from '../../environments/environment';
+import { retryWhileBackendSpinup } from '../core/http-spinup-retry';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,6 @@ export class PerfilService {
   constructor(private http: HttpClient) { }
 
   obtenerPerfil(): Observable<Perfil> {
-    return this.http.get<Perfil>(this.apiUrl);
+    return this.http.get<Perfil>(this.apiUrl).pipe(retryWhileBackendSpinup());
   }
 }

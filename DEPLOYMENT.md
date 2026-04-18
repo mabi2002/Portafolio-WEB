@@ -95,6 +95,19 @@ https://portafolio-backend.onrender.com
 
 Copia esta URL (la usaremos en Vercel)
 
+### Keep-alive automático (GitHub Actions, cada 12 min)
+
+En el repo hay un workflow [`.github/workflows/render-keepalive.yml`](../.github/workflows/render-keepalive.yml) que hace `GET` a tu health check **cada 12 minutos** (por debajo del límite de ~15 min de Render).
+
+1. En GitHub: **Settings** → **Secrets and variables** → **Actions** → pestaña **Variables** → **New repository variable**.
+2. Nombre: `RENDER_HEALTH_URL`  
+   Valor: `https://TU-SERVICIO.onrender.com/api/health` (sustituye por tu URL real).
+3. Haz **merge** del workflow a la rama **default** (`main`). Los `schedule` solo corren en la rama por defecto del repo.
+4. Comprueba en **Actions** que el workflow **Render keep-alive** aparece; puedes lanzarlo manual con **Run workflow** (*workflow_dispatch*).
+5. **Actions** debe estar habilitado para el repositorio (Settings → General → Actions).
+
+GitHub puede retrasar unos minutos los `schedule` en horas punta; 12 min de margen suele bastar. Si un mes GitHub desactiva workflows inactivos en repos sin commits, basta con un push o volver a habilitar Actions.
+
 ---
 
 ## 3️⃣ VERCEL - Frontend Angular
@@ -135,13 +148,30 @@ Copia esta URL (la usaremos en Vercel)
 - [ ] Frontend environment.prod.ts apunta a URL de Render
 - [ ] Probar endpoints desde navegador: https://portafolio-backend.onrender.com/api/proyectos
 - [ ] Probar frontend: https://tu-proyecto.vercel.app
+- [ ] (Opcional) Variable `RENDER_HEALTH_URL` en GitHub para keep-alive cada 12 min
 
 ---
 
 ## 🆘 Troubleshooting
 
-### Backend está en sleep (demora 30s en responder)
-Normal en Render free tier. Después de 15 min inactivo se duerme.
+### Backend está en sleep (demora 30–60s en responder)
+En el **plan gratuito** de Render el servicio se **apaga** tras ~15 minutos sin tráfico. El primer visitante debe esperar a que arranquen el proxy, la JVM y Spring (suele ser medio minuto o más). No es un bug del código.
+
+**Opciones (de más barata a más fiable):**
+
+1. **Mantener el servicio despierto (recomendado en free)**  
+   Ping HTTP cada **10–14 minutos** a `https://TU-SERVICIO.onrender.com/api/health`.  
+   - **Incluido en este repo:** workflow *Render keep-alive* cada **12 min** (configura la variable `RENDER_HEALTH_URL` en GitHub, ver sección anterior).  
+   - Alternativas: [UptimeRobot](https://uptimerobot.com), [cron-job.org](https://cron-job.org).
+
+2. **Reintentos en el frontend**  
+   Este repo ya reintenta las peticiones públicas al despertar el backend, para que un timeout puntual no deje la sección vacía.
+
+3. **Pagar plan en Render**  
+   Plan de pago con instancia **siempre activa** o menos restricciones de cold start.
+
+4. **Caché HTTP en la API de proyectos**  
+   `GET /api/proyectos` declara `Cache-Control` público breve: útil si más adelante pones un CDN o proxy; **no elimina** el cold start del plan gratuito.
 
 ### Error CORS
 Verifica `cors.allowed-origins` en Render environment variables

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { WorkExperience } from '../models/work-experience.model';
 import { environment } from '../../environments/environment';
+import { retryWhileBackendSpinup } from '../core/http-spinup-retry';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,8 @@ export class WorkExperienceService {
 
   getAllWorkExperience(): Observable<WorkExperience[]> {
     return this.http.get<any[]>(this.apiUrl).pipe(
-      map(items => items.map(item => this.transformData(item)))
+      retryWhileBackendSpinup(),
+      map((items) => items.map((item) => this.transformData(item)))
     );
   }
 

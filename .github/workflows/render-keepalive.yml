@@ -1,0 +1,32 @@
+# Mantiene el Web Service de Render despierto (plan free: ~15 min sin tráfico = sleep).
+# Configura la variable del repositorio RENDER_HEALTH_URL (ver DEPLOYMENT.md).
+name: Render keep-alive
+
+on:
+  schedule:
+    # Cada 12 minutos (minutos 0, 12, 24, 36, 48 de cada hora)
+    - cron: '*/12 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: render-keepalive
+  cancel-in-progress: false
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Ping health endpoint
+        env:
+          RENDER_HEALTH_URL: ${{ vars.RENDER_HEALTH_URL }}
+        run: |
+          set -e
+          if [ -z "$RENDER_HEALTH_URL" ]; then
+            echo "::error::Falta la variable del repositorio RENDER_HEALTH_URL. Settings → Secrets and variables → Actions → Variables. Ejemplo: https://tu-backend.onrender.com/api/health"
+            exit 1
+          fi
+          echo "GET $RENDER_HEALTH_URL"
+          curl -fsS --max-time 90 -H "Accept: application/json" "$RENDER_HEALTH_URL"
+          echo ""
+          echo "OK"

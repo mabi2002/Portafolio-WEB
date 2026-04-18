@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Education } from '../models/education.model';
 import { environment } from '../../environments/environment';
+import { retryWhileBackendSpinup } from '../core/http-spinup-retry';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class EducationService {
   constructor(private http: HttpClient) { }
 
   getAllEducation(): Observable<Education[]> {
-    return this.http.get<Education[]>(this.apiUrl);
+    return this.http.get<Education[]>(this.apiUrl).pipe(retryWhileBackendSpinup());
   }
 
   getEducationById(id: number): Observable<Education> {
