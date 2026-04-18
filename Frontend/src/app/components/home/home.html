@@ -46,13 +46,13 @@
           </button>
         </div>
         <div class="social-list" *ngIf="contactExpanded">
-          <a href="https://github.com/mabi2002" target="_blank" rel="noreferrer" class="social-link">
+          <a *ngIf="socialHref('githubUrl') as githubHref" [href]="githubHref" target="_blank" rel="noreferrer" class="social-link">
             <i class="fab fa-github"></i>
           </a>
-          <a href="https://linkedin.com/in/miguelbarraza" target="_blank" rel="noreferrer" class="social-link">
+          <a *ngIf="socialHref('linkedinUrl') as linkedinHref" [href]="linkedinHref" target="_blank" rel="noreferrer" class="social-link">
             <i class="fab fa-linkedin"></i>
           </a>
-          <a href="mailto:info@migueldev.com" class="social-link">
+          <a *ngIf="socialHref('email') as emailHref" [href]="emailHref" class="social-link">
             <i class="fas fa-envelope"></i>
           </a>
         </div>
