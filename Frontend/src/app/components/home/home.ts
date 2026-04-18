@@ -249,7 +249,7 @@ export class Home implements OnInit {
             'Explora una selección de mis trabajos donde la ingeniería de sistemas se encuentra con la ciencia de datos. Desarrollo plataformas escalables y diseño arquitecturas de datos que permiten optimizar flujos de trabajo, automatizar procesos y visualizar KPIs críticos en tiempo real.',
           heroPrimary: 'Ver proyectos',
           heroSecondary: 'Ver stack',
-          projectsTitle: 'My Projects',
+          projectsTitle: 'Mis proyectos',
           projectsText:
             'Algunos de mis proyectos personales en los que he dedicado tiempo y esfuerzo que me han formado como profesional.',
           featuredProject: 'Proyecto destacado',
