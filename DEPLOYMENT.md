@@ -69,7 +69,7 @@ En la página del servicio, va a Environment:
 
 ```
 DB_HOST=db.xxxxx.supabase.co
-DB_PORT=5432
+DB_PORT=6543
 DB_USER=postgres
 DB_PASSWORD=tu_password_supabase
 DB_NAME=postgres
@@ -147,7 +147,7 @@ Normal en Render free tier. Después de 15 min inactivo se duerme.
 Verifica `cors.allowed-origins` en Render environment variables
 
 ### Migraciones no se ejecutaron
-Verifica que Flyway esté enabled en application-prod.properties
+En Render agrega `SPRING_FLYWAY_ENABLED=true`, redeploya, y vuelve a ponerlo en `false` al terminar.
 
 ---
 
@@ -156,3 +156,4 @@ Verifica que Flyway esté enabled en application-prod.properties
 - **Render Build Logs**: https://dashboard.render.com (panel derecho)
 - **Vercel Build Logs**: https://vercel.com/dashboard
 - **Supabase SQL Editor**: https://supabase.com → SQL
+

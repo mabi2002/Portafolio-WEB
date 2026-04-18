@@ -34,14 +34,14 @@
   border-radius: 28px;
   padding: 20px 16px;
   position: relative;
-  min-height: calc(100vh - 112px);
+  min-height: clamp(420px, calc(100svh - 112px), 760px);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   position: sticky;
   top: 84px;
-  height: calc(100vh - 112px);
+  height: auto;
   border: none;
   border-right: 2px solid var(--accent-color);
   background: var(--bg-primary);
@@ -293,7 +293,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 4rem;
-  min-height: calc(100vh - 112px);
+  min-height: clamp(460px, calc(100svh - 112px), 760px);
   border: none;
   background: var(--bg-primary);
   box-shadow: none;
@@ -426,7 +426,7 @@
 }
 
 #trabajos {
-  min-height: calc(100vh - 112px);
+  min-height: auto;
   display: flex;
   flex-direction: column;
 }
@@ -779,7 +779,8 @@
   }
 
   .profile-card {
-    min-height: 100vh;
+    min-height: auto;
+    height: auto;
     overflow: visible;
   }
 }
@@ -1387,7 +1388,7 @@
 @media (max-width: 900px) {
   .content-hero {
     grid-template-columns: 1fr;
-    min-height: 650px;
+    min-height: auto;
     gap: 2.5rem;
   }
 
@@ -1556,7 +1557,7 @@
     grid-template-columns: 1fr;
     align-items: flex-start;
     gap: 2rem;
-    min-height: 600px;
+    min-height: auto;
   }
 
   .hero-display {
@@ -1565,6 +1566,58 @@
 
   .hero-floating-elements {
     min-height: 350px;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .portfolio-shell {
+    width: min(100% - 20px, 920px);
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding-top: 16px;
+  }
+
+  .portfolio-sidebar {
+    position: static;
+  }
+
+  .profile-card {
+    position: relative;
+    top: auto;
+    min-height: auto;
+    height: auto;
+    border-right: none;
+    border-bottom: 2px solid var(--accent-color);
+  }
+
+  .content-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 22px;
+    gap: 1.5rem;
+  }
+
+  .hero-floating-elements,
+  .scroll-indicator {
+    display: none !important;
+  }
+
+  #trabajos {
+    min-height: auto;
+  }
+
+  .projects-grid,
+  .education-list {
+    grid-template-columns: 1fr;
+  }
+
+  .stack-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tech-card__icon-shell {
+    width: 110px;
+    height: 110px;
   }
 }
 

@@ -18,7 +18,7 @@ Copia y pega TODAS estas variables en Render Dashboard → Environment:
 
 ```
 DB_HOST=db.sfxypsmjlyqqiwobgpdt.supabase.co
-DB_PORT=5432
+DB_PORT=6543
 DB_USER=postgres
 DB_PASSWORD=[Tu contraseña aquí]
 DB_NAME=postgres
@@ -66,3 +66,4 @@ Frontend/src/environments/environment.prod.ts → apiUrl: 'https://portafolio-ba
 - [ ] Obtengo la URL de Render
 - [ ] Actualizo Frontend environment.prod.ts
 - [ ] Despliego en Vercel
+

@@ -161,3 +161,27 @@
     }
   }
 }
+
+@media (hover: none) and (pointer: coarse) {
+  .topbar__inner {
+    width: min(100% - 20px, 920px);
+    grid-template-columns: 1fr;
+    padding: 10px 0;
+  }
+
+  .topbar__brand {
+    justify-self: center;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .topbar__links {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 0.25rem;
+    padding-bottom: 2px;
+  }
+}

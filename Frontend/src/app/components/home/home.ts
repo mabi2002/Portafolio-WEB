@@ -228,7 +228,7 @@ export class Home implements OnInit {
             'This section showcases the technologies and tools I use in my work and projects.',
           educationTitle: 'Education',
           educationText:
-            'A compact, elegant summary of the training path behind the projects.',
+            'Theoretical foundations and professional training. In this section, I share the educational path that allows me to approach complex projects with a technical, results-oriented perspective.',
           frontend: 'Frontend',
           backend: 'Backend',
           tools: 'Tools',
@@ -265,7 +265,7 @@ export class Home implements OnInit {
             'En esta seccion se muestran las tecnologias y herramientas que utilizo en mi trabajo y proyectos.',
           educationTitle: 'Educacion',
           educationText:
-            'Un resumen elegante y compacto del camino formativo que respalda los proyectos.',
+            'Bases teóricas y formación profesional. En este apartado comparto el recorrido educativo que me permite abordar proyectos complejos con una visión técnica y orientada a resultados.',
           frontend: 'Frontend',
           backend: 'Backend',
           tools: 'Herramientas',
