@@ -188,11 +188,37 @@ export class Home implements OnInit {
       return null;
     }
 
-    if (key === 'email' && this.perfil.email) {
-      return `mailto:${this.perfil.email}`;
+    if (key === 'email') {
+      const email = this.perfil.email?.trim();
+      if (!email) {
+        return null;
+      }
+      return email.startsWith('mailto:') ? email : `mailto:${email}`;
     }
 
-    return this.perfil[key] ?? null;
+    return this.normalizeExternalUrl(this.perfil[key]);
+  }
+
+  private normalizeExternalUrl(url?: string | null): string | null {
+    const value = url?.trim();
+    if (!value) {
+      return null;
+    }
+
+    if (
+      value.startsWith('http://') ||
+      value.startsWith('https://') ||
+      value.startsWith('mailto:') ||
+      value.startsWith('tel:')
+    ) {
+      return value;
+    }
+
+    if (value.startsWith('//')) {
+      return `https:${value}`;
+    }
+
+    return `https://${value}`;
   }
 
   get t() {
