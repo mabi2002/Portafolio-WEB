@@ -95,9 +95,9 @@ https://portafolio-backend.onrender.com
 
 Copia esta URL (la usaremos en Vercel)
 
-### Keep-alive automático (GitHub Actions, cada 10 min)
+### Keep-alive automático (GitHub Actions, cada 5 min)
 
-En el repo hay un workflow [`.github/workflows/render-keepalive.yml`](../.github/workflows/render-keepalive.yml) que hace `GET` a tu health check **cada 10 minutos** (por debajo del límite de ~15 min de Render).
+En el repo hay un workflow [`.github/workflows/render-keepalive.yml`](../.github/workflows/render-keepalive.yml) que hace `GET` a tu health check **cada 5 minutos** (por debajo del límite de ~15 min de Render).
 
 1. En GitHub: **Settings** → **Secrets and variables** → **Actions** → pestaña **Variables** → **New repository variable**.
 2. Nombre: `RENDER_HEALTH_URL`  
@@ -107,14 +107,14 @@ En el repo hay un workflow [`.github/workflows/render-keepalive.yml`](../.github
 4. Comprueba en **Actions** que el workflow **Render keep-alive** aparece; puedes lanzarlo manual con **Run workflow** (*workflow_dispatch*).
 5. **Actions** debe estar habilitado para el repositorio (Settings → General → Actions).
 
-GitHub puede retrasar unos minutos los `schedule` en horas punta; 10 min de margen suele ser más robusto para evitar el sleep en free. Si un mes GitHub desactiva workflows inactivos en repos sin commits, basta con un push o volver a habilitar Actions.
+GitHub puede retrasar unos minutos los `schedule` en horas punta; 5 min de margen suele ser más robusto para evitar el sleep en free. Si un mes GitHub desactiva workflows inactivos en repos sin commits, basta con un push o volver a habilitar Actions.
 
 #### Solo corre al manual y no aparece “scheduled”
 
 1. **¿El repo es un fork?** En forks, GitHub **desactiva por defecto** los workflows con `schedule` hasta que los habilites. Ve a **Actions**: si ves aviso de deshabilitado, pulsa para **activar workflows** (o **Enable workflows**). El manual (`workflow_dispatch`) puede funcionar igual sin eso; el cron no.
 2. **Rama por defecto:** **Settings** → **General** → *Default branch* debe ser `main` (o la rama donde está `.github/workflows/render-keepalive.yml`). El `schedule` solo usa la rama por defecto.
 3. **Comprobar ejecuciones programadas:** **Actions** → **Render keep-alive** → abre varias ejecuciones: en el encabezado debe decir **scheduled** (no solo *workflow_dispatch*). La primera puede tardar hasta ~1 h en aparecer.
-4. **Repo privado gratis:** en algunos casos los `schedule` están muy limitados; si sigue fallando, usa [UptimeRobot](https://uptimerobot.com) con la misma URL cada 10 min como respaldo.
+4. **Repo privado gratis:** en algunos casos los `schedule` están muy limitados; si sigue fallando, usa [UptimeRobot](https://uptimerobot.com) con la misma URL cada 5 min como respaldo.
 
 ---
 
@@ -156,7 +156,7 @@ GitHub puede retrasar unos minutos los `schedule` en horas punta; 10 min de marg
 - [ ] Frontend environment.prod.ts apunta a URL de Render
 - [ ] Probar endpoints desde navegador: https://portafolio-backend.onrender.com/api/proyectos
 - [ ] Probar frontend: https://tu-proyecto.vercel.app
-- [ ] (Opcional) Variable `RENDER_HEALTH_URL` en GitHub para keep-alive cada 10 min
+- [ ] (Opcional) Variable `RENDER_HEALTH_URL` en GitHub para keep-alive cada 5 min
 
 ---
 
@@ -169,7 +169,7 @@ En el **plan gratuito** de Render el servicio se **apaga** tras ~15 minutos sin 
 
 1. **Mantener el servicio despierto (recomendado en free)**  
    Ping HTTP cada **10–14 minutos** a `https://TU-SERVICIO.onrender.com/api/health`.  
-   - **Incluido en este repo:** workflow *Render keep-alive* cada **10 min** (configura la variable `RENDER_HEALTH_URL` en GitHub, ver sección anterior).  
+   - **Incluido en este repo:** workflow *Render keep-alive* cada **5 min** (configura la variable `RENDER_HEALTH_URL` en GitHub, ver sección anterior).  
    - Alternativas: [UptimeRobot](https://uptimerobot.com), [cron-job.org](https://cron-job.org).
 
 2. **Reintentos en el frontend**  

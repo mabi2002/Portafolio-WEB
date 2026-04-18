@@ -7,9 +7,9 @@ name: Render keep-alive
 
 on:
   schedule:
-    # Cada 10 min (UTC). GitHub puede retrasar ejecuciones programadas algunos minutos,
+    # Cada 5 min (UTC). GitHub puede retrasar ejecuciones programadas algunos minutos,
     # así evitamos superar la ventana de sleep (~15 min) del plan free de Render.
-    - cron: '*/10 * * * *'
+    - cron: '*/5 * * * *'
   workflow_dispatch:
 
 permissions:
