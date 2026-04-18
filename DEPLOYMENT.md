@@ -101,7 +101,8 @@ En el repo hay un workflow [`.github/workflows/render-keepalive.yml`](../.github
 
 1. En GitHub: **Settings** → **Secrets and variables** → **Actions** → pestaña **Variables** → **New repository variable**.
 2. Nombre: `RENDER_HEALTH_URL`  
-   Valor: `https://TU-SERVICIO.onrender.com/api/health` (sustituye por tu URL real).
+   Valor recomendado: `https://TU-SERVICIO.onrender.com/api/health` (con **ruta completa**).  
+   Si solo pones `https://TU-SERVICIO.onrender.com`, el workflow **añade** `/api/health` solo; sin eso, `GET /` puede tardar mucho o agotar tiempo de espera con el servicio dormido.
 3. Haz **merge** del workflow a la rama **default** (`main`). Los `schedule` solo corren en la rama por defecto del repo.
 4. Comprueba en **Actions** que el workflow **Render keep-alive** aparece; puedes lanzarlo manual con **Run workflow** (*workflow_dispatch*).
 5. **Actions** debe estar habilitado para el repositorio (Settings → General → Actions).
