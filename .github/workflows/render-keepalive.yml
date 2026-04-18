@@ -1,12 +1,18 @@
 # Mantiene el Web Service de Render despierto (plan free: ~15 min sin tráfico = sleep).
 # Configura la variable del repositorio RENDER_HEALTH_URL (ver DEPLOYMENT.md).
+#
+# Si solo corre "manual" y nunca "scheduled": repo fork → habilitar Actions programados
+# en la pestaña Actions. Rama por defecto debe ser la que tiene este archivo (main).
 name: Render keep-alive
 
 on:
   schedule:
-    # Cada 12 minutos (minutos 0, 12, 24, 36, 48 de cada hora)
-    - cron: '*/12 * * * *'
+    # ~cada 12 min (UTC), desfasado de :00 para evitar colas de GitHub al inicio de hora
+    - cron: '5,17,29,41,53 * * * *'
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 concurrency:
   group: render-keepalive

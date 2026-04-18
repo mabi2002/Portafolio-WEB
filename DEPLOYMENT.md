@@ -109,6 +109,13 @@ En el repo hay un workflow [`.github/workflows/render-keepalive.yml`](../.github
 
 GitHub puede retrasar unos minutos los `schedule` en horas punta; 12 min de margen suele bastar. Si un mes GitHub desactiva workflows inactivos en repos sin commits, basta con un push o volver a habilitar Actions.
 
+#### Solo corre al manual y no aparece “scheduled”
+
+1. **¿El repo es un fork?** En forks, GitHub **desactiva por defecto** los workflows con `schedule` hasta que los habilites. Ve a **Actions**: si ves aviso de deshabilitado, pulsa para **activar workflows** (o **Enable workflows**). El manual (`workflow_dispatch`) puede funcionar igual sin eso; el cron no.
+2. **Rama por defecto:** **Settings** → **General** → *Default branch* debe ser `main` (o la rama donde está `.github/workflows/render-keepalive.yml`). El `schedule` solo usa la rama por defecto.
+3. **Comprobar ejecuciones programadas:** **Actions** → **Render keep-alive** → abre varias ejecuciones: en el encabezado debe decir **scheduled** (no solo *workflow_dispatch*). La primera puede tardar hasta ~1 h en aparecer.
+4. **Repo privado gratis:** en algunos casos los `schedule` están muy limitados; si sigue fallando, usa [UptimeRobot](https://uptimerobot.com) con la misma URL cada 12 min como respaldo.
+
 ---
 
 ## 3️⃣ VERCEL - Frontend Angular
