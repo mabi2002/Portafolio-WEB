@@ -7,8 +7,9 @@ name: Render keep-alive
 
 on:
   schedule:
-    # ~cada 12 min (UTC), desfasado de :00 para evitar colas de GitHub al inicio de hora
-    - cron: '5,17,29,41,53 * * * *'
+    # Cada 10 min (UTC). GitHub puede retrasar ejecuciones programadas algunos minutos,
+    # así evitamos superar la ventana de sleep (~15 min) del plan free de Render.
+    - cron: '*/10 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -42,7 +43,19 @@ jobs:
               ;;
           esac
           echo "GET $URL"
-          # Cold start de JVM en free puede pasar de 90s; 180s suele bastar
-          curl -fsS --max-time 180 -H "Accept: application/json" "$URL"
-          echo ""
-          echo "OK"
+          # Reintentos para cubrir cold start o latencia temporal de Render/GitHub.
+          ATTEMPTS=3
+          for i in $(seq 1 "$ATTEMPTS"); do
+            if curl -fsS --max-time 180 -H "Accept: application/json" "$URL"; then
+              echo ""
+              echo "OK (intento $i/$ATTEMPTS)"
+              exit 0
+            fi
+            if [ "$i" -lt "$ATTEMPTS" ]; then
+              echo ""
+              echo "Reintentando en 20s ($i/$ATTEMPTS)..."
+              sleep 20
+            fi
+          done
+          echo "::error::No se pudo hacer ping al endpoint tras $ATTEMPTS intentos"
+          exit 1
